@@ -1,6 +1,14 @@
 from flask import Flask
-app = Flask(__name__)
+from pony.orm import Database
 
-@app.route('/')
+app = Flask(__name__)
+db = Database()
+db.bind(provider='postgres', database='building-db')
+from models.Building import Building
+
+db.generate_mapping(create_tables=True)
+
+
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    return 'Hello Wolrd!', 200
+    return 'Hello mate!', 200
