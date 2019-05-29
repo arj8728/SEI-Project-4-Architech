@@ -10,6 +10,7 @@ class Building(db.Entity):
     post_code = Required(str)
     construction = Required(str)
     built = Required(int)
+    image = Required(str)
 
 class BuildingSchema(Schema):
     id = fields.Int(dump_only=True)
@@ -20,3 +21,4 @@ class BuildingSchema(Schema):
     post_code = fields.Str(required=True)
     construction = fields.Str(required=True)
     built = fields.Int(required=True)
+    image = fields.Str(required=True)
