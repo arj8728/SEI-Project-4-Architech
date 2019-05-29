@@ -36,3 +36,38 @@ def show(building_id):
         abort(404)
 
     return schema.dumps(building)
+
+@router.route('/buildings/<int:building_id>', methods=['PUT'])
+@db_session
+#@secure_route
+def update(building_id):
+    schema = BuildingSchema()
+    building = Building.get(id=building_id)
+
+
+    if not building:
+        abort(404)
+
+    try:
+        data = schema.load(request.get_json())
+        building.set(**data)
+        db.commit()
+    except ValidationError as err:
+        return jsonify({'message': 'Validation failed', 'errors': err.messages}), 422
+
+    return schema.dumps(building)
+
+
+@router.route('/buildings/<int:building_id>', methods=['DELETE'])
+@db_session
+#@secure_route
+def delete(building_id):
+    building = Building.get(id=building_id)
+
+    if not building:
+        abort(404)
+
+    building.delete()
+    db.commit()
+
+    return '', 204

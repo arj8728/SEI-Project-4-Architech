@@ -1,6 +1,7 @@
 from app import app
-from controllers import buildings, constructions, styles
+from controllers import buildings, constructions, styles, auth
 
 app.register_blueprint(buildings.router)
 app.register_blueprint(constructions.router)
 app.register_blueprint(styles.router)
+app.register_blueprint(auth.router)

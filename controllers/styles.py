@@ -36,3 +36,39 @@ def show(style_id):
         abort(404)
 
     return schema.dumps(style)
+
+@router.route('/styles/<int:style_id>', methods=['PUT'])
+@db_session
+#@secure_route
+def update(style_id):
+    schema = StyleSchema()
+    style = Style.get(id=style_id)
+
+
+    if not style:
+        abort(404)
+
+    try:
+        data = schema.load(request.get_json())
+        style.set(**data)
+        db.commit()
+    except ValidationError as err:
+        return jsonify({'message': 'Validation failed', 'errors': err.messages}), 422
+
+    return schema.dumps(style)
+
+
+@router.route('/styles/<int:style_id>', methods=['DELETE'])
+@db_session
+#@secure_route
+def delete(style_id):
+
+    style = Style.get(id=style_id)
+
+    if not style:
+        abort(404)
+
+    style.delete()
+    db.commit()
+
+    return '', 204

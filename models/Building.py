@@ -15,6 +15,7 @@ class Building(db.Entity):
     constructions = Set('Construction')
     built = Required(int)
     image = Required(str)
+    user = Required('User')
 
 
 class BuildingSchema(Schema):
@@ -29,6 +30,7 @@ class BuildingSchema(Schema):
     construction_ids = fields.List(fields.Int(), load_only=True)
     built = fields.Int(required=True)
     image = fields.Str(required=True)
+    user = fields.Nested('UserSchema', exclude=('email', 'buildings'))
 
     @post_load
     def load_style(self, data):
@@ -39,7 +41,7 @@ class BuildingSchema(Schema):
 
     @post_load
     def load_constructions(self, data):
-        data['constructions'] = [Construction.get(id=cat_id) for cat_id in data['construction_ids']]
+        data['constructions'] = [Construction.get(id=cont_id) for cont_id in data['construction_ids']]
         del data['construction_ids']
 
         return data
