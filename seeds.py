@@ -1,7 +1,9 @@
 from pony.orm import db_session
 from app import db
+
 from models.Building import Building
 from models.Construction import Construction
+from models.Style import Style
 
 db.drop_all_tables(with_all_data=True)
 db.create_tables()
@@ -27,11 +29,27 @@ with db_session():
     timber_cladding = Construction(name='Timber cladding')
 
 
+    radical_bowellism = Style(name='Radical Bowellism')
+    greek_revival = Style(name='Greek Revival')
+    modern = Style(name='Modern')
+    brutalist = Style(name='Brutalist')
+    georgian = Style(name='Georgian')
+    victorian = Style(name='Victorian')
+    modernist = Style(name='Modernist')
+    edwardian = Style(name='Edwardian')
+    art_deco = Style(name='Art Deco')
+    neo_classical = Style(name='Neo Classical')
+    regency = Style(name='Regency')
+    jaconbean = Style(name='jacobean')
+    elizabethan = Style(name='Elizabethan')
+    tudor = Style(name='Tudor')
+    medieval = Style(name='Medieval')
+
 
     Building(
     name='The Lloyd\'s Building',
     architect='Sir Richard Rogers',
-    style='Radical Bowellism',
+    style=radical_bowellism,
     # (refers to designs that see the services for the building located on the exterior to maximise the space inside)
     address='1 Lime Street, London',
     post_code='EC3M 7HA',
@@ -43,7 +61,7 @@ with db_session():
     Building(
     name='The British Museum',
     architect='Sir Robert Smirke',
-    style='Greek Revival',
+    style=greek_revival,
     # (refers to designs that see the services for the building located on the exterior to maximise the space inside)
     address='Great Russell Street, London',
     post_code='WC1B 3DG',
@@ -55,7 +73,7 @@ with db_session():
     Building(
     name='Lee Valley VeloPark',
     architect='Hopkins Architects',
-    style='Modern',
+    style=modern,
     address='Queen Elizabeth Olympic Park, Abercrombie Road, London',
     post_code='E20 3AB',
     constructions=[rcf, steel_frame, timber_cladding],
@@ -67,7 +85,7 @@ with db_session():
     Building(
     name='Shakespeare Tower',
     architect='Chamberlain, Powell and Bon',
-    style='Brutalist',
+    style=brutalist,
     address='The Barbican Estate, London',
     post_code='EC2Y 8NJ',
     constructions=[pre_cast, granite_aggregate],
