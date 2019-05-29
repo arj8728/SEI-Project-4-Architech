@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Home from './components/Home'
-import  BuildingsIndex from './components/BuildingsIndex'
-
+import BuildingsIndex from './components/BuildingsIndex'
+import BuildingShow from './components/BuildingShow'
 
 import 'bulma'
 import './style.scss'
@@ -18,6 +18,8 @@ class App extends React.Component {
       <Router>
         <main>
           <Switch>
+            <Route path="/buildings/:id" component={BuildingShow} />
+
             <Route path="/buildings" component={BuildingsIndex} />
 
             <Route path="/" component={Home}/>
