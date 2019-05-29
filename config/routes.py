@@ -3,10 +3,10 @@ from flask import abort
 from app import app
 from controllers import buildings, constructions, styles, auth
 
-app.register_blueprint(buildings.router)
-app.register_blueprint(constructions.router)
-app.register_blueprint(styles.router)
-app.register_blueprint(auth.router)
+app.register_blueprint(buildings.router, url_prefix='/api')
+app.register_blueprint(constructions.router, url_prefix='/api')
+app.register_blueprint(styles.router, url_prefix='/api')
+app.register_blueprint(auth.router, url_prefix='/api')
 
 @app.route('/')
 @app.route('/<path:path>')
