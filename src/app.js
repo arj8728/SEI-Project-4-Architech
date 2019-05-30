@@ -29,19 +29,14 @@ class App extends React.Component {
           <FlashMessages />
           <Switch>
 
-
-            <Route path="/buildings/:id/BuildingEdit" component={BuildingEdit} />
-
-            <Route path="/buildings/BuildingNew" component={BuildingNew} />
+            <Route path="/buildings/:id/Edit" component={BuildingEdit} />
+            <Route path="/buildings/new" component={BuildingNew} />
 
             <Route path="/register" component={Register} />
-
             <Route path="/login" component={Login} />
 
             <Route path="/buildings/:id" component={BuildingShow} />
-
             <Route path="/buildings" component={BuildingsIndex} />
-
             <Route path="/" component={Home}/>
 
           </Switch>

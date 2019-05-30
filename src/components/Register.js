@@ -25,7 +25,6 @@ class Register extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-
     axios.post('/api/register', this.state.data)
       .then(() => this.props.history.push('/login')) // redirect the user to the login page...
       .catch(err => this.setState({ errors: err.response.data.errors }))
@@ -39,6 +38,7 @@ class Register extends React.Component {
           <div className="columns is-centered">
             <div className="column is-half-desktop is-two-thirds-tablet">
               <form onSubmit={this.handleSubmit}>
+
                 <div className="field">
                   <label className="label">Username</label>
                   <div className="control">
@@ -49,8 +49,10 @@ class Register extends React.Component {
                       onChange={this.handleChange}
                     />
                   </div>
-                  {this.state.errors.username && <div className="help is-danger">{this.state.errors.username}</div>}
+
+
                 </div>
+
                 <div className="field">
                   <label className="label">Email</label>
                   <div className="control">
@@ -61,8 +63,9 @@ class Register extends React.Component {
                       onChange={this.handleChange}
                     />
                   </div>
-                  {this.state.errors.email && <div className="help is-danger">{this.state.errors.email}</div>}
+
                 </div>
+
                 <div className="field">
                   <label className="label">Password</label>
                   <div className="control">
@@ -74,21 +77,23 @@ class Register extends React.Component {
                       onChange={this.handleChange}
                     />
                   </div>
-                  {this.state.errors.password && <div className="help is-danger">{this.state.errors.password}</div>}
+
                 </div>
+
                 <div className="field">
                   <label className="label">Password Confirmation</label>
                   <div className="control">
                     <input
                       className="input"
-                      name="passwordConfirmation"
+                      name="password_confirmation"
                       type="password"
                       placeholder="eg: ••••••••"
                       onChange={this.handleChange}
                     />
                   </div>
-                  {this.state.errors.passwordConfirmation && <div className="help is-danger">{this.state.errors.passwordConfirmation}</div>}
+
                 </div>
+
                 <button className="button is-primary">Submit</button>
               </form>
             </div>

@@ -31,7 +31,7 @@ class BuildingShow extends React.Component {
 
   canModify() {
     // if the  user is logged in AND the user's id matches the buildings' user's id return true
-    return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.building.createdBy._id
+    return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.building.user._id
   }
 
 
@@ -72,11 +72,10 @@ class BuildingShow extends React.Component {
                 <h2 className="title is-4">Architectural Style: {state.style.name}</h2>
               </div>
             </div>
-            <div className="media-content">
-              <div className="content">
-                <h2 className="title is-4">Construction: {state.constructions.name}</h2>
-              </div>
-            </div>
+
+
+
+
             <div className="media-content">
               <div className="content">
                 <h2 className="title is-4"> {state.address}</h2>
@@ -92,3 +91,11 @@ class BuildingShow extends React.Component {
 }
 
 export default BuildingShow
+ 
+//this.state.constructions.map
+
+// <div className="media-content">
+//   <div className="content">
+//     <h2 className="title is-4">Construction: {state.constructions.name}</h2>
+//   </div>
+// </div>
