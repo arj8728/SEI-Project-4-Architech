@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-// import Auth from '../../lib/Auth'
+import Auth from '../lib/Auth'
 
 import BuildingCard from './BuildingCard'
 
@@ -24,6 +24,7 @@ class Index extends React.Component {
     return (
       <section className="section">
         <div className="container">
+          {Auth.isAuthenticated() && <Link to="/buildings/new" className="button">Add Building</Link>}
           <hr />
           <div className="columns is-multiline">
             {this.state.buildings.map(building =>
