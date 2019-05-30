@@ -19,10 +19,15 @@ class BuildingNew extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  
   componentDidMount() {
     axios.get('/api/constructions')
       .then(res => this.setState({ constructions: res.data }))
+
+    axios.get('/api/styles')
+      .then(res => this.setState({ styles: res.data }))
   }
+
 
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
@@ -45,6 +50,14 @@ class BuildingNew extends React.Component {
 
   sortedConstructions(){
     return this.state.constructions.sort((a,b) => {
+      if(a.name === b.name) return 0
+      return a.name < b.name ? -1 : 1
+    })
+  }
+
+
+  sortedStyles(){
+    return this.state.styles.sort((a,b) => {
       if(a.name === b.name) return 0
       return a.name < b.name ? -1 : 1
     })
@@ -104,81 +117,88 @@ class BuildingNew extends React.Component {
                 </div>
 
                 <div className="field">
-                  <label className="label">Architectural Style:</label>
-                  <div className="input">
-
-
-                    {this.state.errors.style_id && <div className="help is-danger">{this.state.errors.style_id}</div>}
+                  <label className="label">Construction:</label>
+                  <div className="select">
+                    <select onChange={this.handleChange} name="construction_id">
+                      {this.sortedConstructions().map(construction =>
+                        <option
+                          key={construction.id}
+                          value={construction.name}>
+                          {construction.name}
+                        </option>
+                      )}
+                    </select>
                   </div>
-
-                  <div className="field">
-                    <label className="label">Construction:</label>
-                    <div className="select">
-                      <select onChange={this.handleChange} name="construction_id">
-                        {this.sortedConstructions().map(construction =>
-                          <option
-                            key={construction.id}
-                            value={construction.name}>
-                            {construction.name}
-                          </option>
-                        )}
-                      </select>
-                    </div>
-                    {this.state.errors.construction_id && <div className="help is-danger">{this.state.errors.construction_id}</div>}
-                  </div>
-
-
-                  <div className="field">
-                    <label className="label">Address</label>
-                    <div className="control">
-                      <input
-                        className="input"
-                        type="text"
-                        name="address"
-                        placeholder="eg: 1 Seaside Avenue, Hastings"
-                        onChange={this.handleChange} />
-                    </div>
-                    {this.state.errors.address && <div className="help is-danger">{this.state.errors.address}</div>}
-                  </div>
-
-
-                  <div className="field">
-                    <label className="label">Postcode</label>
-                    <div className="control">
-                      <input
-                        className="input"
-                        name="postcode"
-                        placeholder="eg: SE1 4NN"
-                        value={this.state.data.postcode || ''}
-                        onChange={this.handleChange}
-                      />
-                    </div>
-                  </div>
-                  {this.state.errors.postcode && <div className="help is-danger">{this.state.errors.postcode}</div>}
-
-
-
-                  <div className="field">
-                    <label className="label">Built</label>
-                    <div className="control">
-                      <input
-                        className="input"
-                        name="built"
-                        placeholder="eg: 1806"
-                        value={this.state.data.built || ''}
-                        onChange={this.handleChange}
-                      />
-                    </div>
-                  </div>
-                  {this.state.errors.built && <div className="help is-danger">{this.state.errors.built}</div>}
-
-
-
-                  <button
-                    className="button is-primary is-centered">
-                      Add Building
-                  </button>
+                  {this.state.errors.construction_id && <div className="help is-danger">{this.state.errors.construction_id}</div>}
                 </div>
+
+                <div className="field">
+                  <label className="label">Architectural Style:</label>
+                  <div className="select">
+                    <select onChange={this.handleChange} name="style_id">
+                      {this.sortedStyles().map(style =>
+                        <option
+                          key={style.id}
+                          value={style.name}>
+                          {style.name}
+                        </option>
+                      )}
+                    </select>
+                  </div>
+                  {this.state.errors.style_id && <div className="help is-danger">{this.state.errors.style_id}</div>}
+                </div>
+
+
+                <div className="field">
+                  <label className="label">Address</label>
+                  <div className="control">
+                    <input
+                      className="input"
+                      type="text"
+                      name="address"
+                      placeholder="eg: 1 Seaside Avenue, Hastings"
+                      onChange={this.handleChange} />
+                  </div>
+                  {this.state.errors.address && <div className="help is-danger">{this.state.errors.address}</div>}
+                </div>
+
+
+                <div className="field">
+                  <label className="label">Postcode</label>
+                  <div className="control">
+                    <input
+                      className="input"
+                      name="postcode"
+                      placeholder="eg: SE1 4NN"
+                      value={this.state.data.postcode || ''}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+                {this.state.errors.postcode && <div className="help is-danger">{this.state.errors.postcode}</div>}
+
+
+
+                <div className="field">
+                  <label className="label">Built</label>
+                  <div className="control">
+                    <input
+                      className="input"
+                      name="built"
+                      placeholder="eg: 1806"
+                      value={this.state.data.built || ''}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+                {this.state.errors.built && <div className="help is-danger">{this.state.errors.built}</div>}
+
+
+
+                <button
+                  className="button is-primary is-centered">
+                      Add Building
+                </button>
               </form>
 
             </div>
