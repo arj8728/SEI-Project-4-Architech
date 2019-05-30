@@ -19,7 +19,7 @@ class BuildingNew extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  
+
   componentDidMount() {
     axios.get('/api/constructions')
       .then(res => this.setState({ constructions: res.data }))
@@ -123,7 +123,7 @@ class BuildingNew extends React.Component {
                       {this.sortedConstructions().map(construction =>
                         <option
                           key={construction.id}
-                          value={construction.name}>
+                          value={construction.id}>
                           {construction.name}
                         </option>
                       )}
@@ -139,7 +139,7 @@ class BuildingNew extends React.Component {
                       {this.sortedStyles().map(style =>
                         <option
                           key={style.id}
-                          value={style.name}>
+                          value={style.id}>
                           {style.name}
                         </option>
                       )}

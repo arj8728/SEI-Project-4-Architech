@@ -45,3 +45,8 @@ class BuildingSchema(Schema):
         del data['construction_ids']
 
         return data
+
+
+
+# change the construction to be the same as styles so that in the Building it will change to constructions = Required('Constructions')
+# in the building schema the contructions  should follow the same format as the styles get rid of the many = true
