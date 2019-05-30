@@ -11,4 +11,4 @@ class Construction(db.Entity):
 class ConstructionSchema(Schema):
     id = fields.Int(dump_only=True) # dump_only means "write only"
     name = fields.Str(required=True)
-    buildings = fields.Nested('BuildingSchema', many=True, exclude=('constructions',), dump_only=True)
+    buildings = fields.Nested('BuildingSchema', many=True, exclude=('construction',), dump_only=True)

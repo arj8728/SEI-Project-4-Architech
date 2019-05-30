@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BuildingCard = ({ name, image, architect, style, constructions, address }) => {
+const BuildingCard = ({ name, image, architect, style, construction, address }) => {
   return (
     <div className="card">
       <div className="card-header">
@@ -23,7 +23,7 @@ const BuildingCard = ({ name, image, architect, style, constructions, address })
       </div>
       <div className="card-content">
         <div className="content">
-          <p>Construction: {constructions.name}</p>
+          <p>Construction: {construction.name}</p>
         </div>
       </div>
       <div className="card-content">

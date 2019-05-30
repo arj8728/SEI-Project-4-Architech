@@ -11,4 +11,4 @@ class Style(db.Entity):
 class StyleSchema(Schema):
     id = fields.Int() # dump_only means "write only"
     name = fields.Str(required=True)
-    buildings = fields.Nested('BuildingSchema', many=True, exclude=('style', 'constructions'))
+    buildings = fields.Nested('BuildingSchema', many=True, exclude=('style', 'construction'))

@@ -1,5 +1,5 @@
 from app import db
-from pony.orm import Required, Set
+from pony.orm import Required
 from marshmallow import Schema, fields, post_load
 
 from .Style import Style
@@ -12,11 +12,10 @@ class Building(db.Entity):
     style = Required('Style')
     address = Required(str)
     postcode = Required(str)
-    constructions = Set('Construction')
+    construction = Required('Construction')
     built = Required(int)
     image = Required(str)
     user = Required('User')
-
 
 class BuildingSchema(Schema):
     id = fields.Int(dump_only=True)
@@ -26,8 +25,8 @@ class BuildingSchema(Schema):
     style_id = fields.Int(load_only=True)
     address = fields.Str(required=True)
     postcode = fields.Str(required=True)
-    constructions = fields.Nested('ConstructionSchema', many=True, exclude=('buildings',), dump_only=True)
-    construction_ids = fields.List(fields.Int(), load_only=True)
+    construction = fields.Nested('ConstructionSchema', exclude=('buildings',), dump_only=True)
+    construction_id = fields.Int(load_only=True)
     built = fields.Int(required=True)
     image = fields.Str(required=True)
     user = fields.Nested('UserSchema', exclude=('email', 'buildings'))
@@ -40,11 +39,19 @@ class BuildingSchema(Schema):
         return data
 
     @post_load
-    def load_constructions(self, data):
-        data['constructions'] = [Construction.get(id=cont_id) for cont_id in data['construction_ids']]
-        del data['construction_ids']
+    def load_construction(self, data):
+        data['construction'] = Construction.get(id=data['construction_id'])
+        del data['construction_id']
 
         return data
+
+
+    # @post_load
+    # def load_construction(self, data):
+    #     data['construction'] = [Construction.get(id=cont_id) for cont_id in data['construction_id']]
+    #     del data['construction_id']
+    #
+    #     return data
 
 
 
