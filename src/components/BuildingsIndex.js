@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Auth from '../lib/Auth'
 
 import BuildingCard from './BuildingCard'
+//import IndexMap from './IndexMap'
 
 class Index extends React.Component {
 
@@ -12,7 +13,25 @@ class Index extends React.Component {
 
     this.state = {
       buildings: []
+      //MapView: true,
+      //ListView: false
     }
+    //this.MapView = this.MapView.bind(this)
+    //this.ListView = this.ListView.bind(this)
+    //}
+
+  // ListView() {
+  //     this.setState({
+  //       MapView: false,
+  //       ListView: true
+  //     })
+  //   }
+  //
+  //   MapView() {
+  //     this.setState({
+  //       MapView: true,
+  //       ListView: false
+  //     })
   }
 
   componentDidMount() {

@@ -28,3 +28,31 @@
   background-position: center center;
   padding: 2rem;
 }
+
+//**** Navbar Home **** //
+///////////////////////////////////////////////////////////
+#background-change {
+background-position: center;
+background-size: cover;
+background-image: contain;
+transition: background-image 2s ease;
+}
+
+.logo{
+  max-width: 120px;
+  padding: 20px;
+  margin-top: -10px;
+}
+
+.is-fullheight{
+ background-position: center;
+  background-size: cover;
+  height: 500px;
+  transition: background-image 0.8s step-end
+}
+
+nav.navbar {
+  height: 80px;
+}
+
+//**** END Navbar Home  **** //
