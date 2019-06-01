@@ -49,7 +49,7 @@ class BuildingNew extends React.Component {
       })
       .then(() => {
         // for this.state.data we are passing in the long and lat above in this.state???
-        // this.state.data has to be in the same format as the model, therefore this.state.data needs to be a series of key value pairs, not the state object with any key value pairs that we've attached atteched it. 
+        // this.state.data has to be in the same format as the model, therefore this.state.data needs to be a series of key value pairs, not the state object with any key value pairs that we've attached atteched it.
         return axios.post('/api/buildings', this.state.data, {
           headers: {
             'Content-Type': 'application/json',
