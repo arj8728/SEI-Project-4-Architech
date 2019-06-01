@@ -15,7 +15,6 @@ class IndexMap extends React.Component {
       pin: {},
       pinClick: false
     }
-
   }
 
   handleMarkerClick(building) {
@@ -23,17 +22,16 @@ class IndexMap extends React.Component {
     else this.setState({ selectedBuilding: building })
   }
 
-
   render() {
-    console.log(this.props, 'THIS.PROPS')
+    console.log(this.props, 'IndexMAP.PROPS')
     if (!this.props.buildings) {
-      return <h1>Loading...</h1>
+      return <img className="loading" src="https://media1.giphy.com/media/2Fazjtp85yxQTgh0c/giphy.gif" />
     } else {
       return (
         <div className="location">
           <Map
             style='mapbox://styles/mapbox/streets-v9'
-            center={[-0.25, 51.1010]}
+            center={[-0.07251, 51.51538]}
             zoom={[8]}
             containerStyle={{
               height: '80vh',
@@ -61,9 +59,8 @@ class IndexMap extends React.Component {
                   }}>
 
                   <div>
-                    <h3>{this.state.selectedBuilding.title}</h3>
+                    <h3>{this.state.selectedBuilding.name}</h3>
                     <img className="popupimage"src={this.state.selectedBuilding.image} alt={this.state.selectedBuilding.name}/>
-                    <h3> Price: {this.state.selectedBuilding.price} | Sleeps: {this.state.selectedBuilding.sleeps}</h3>
                   </div>
                 </Popup>
               </Link>

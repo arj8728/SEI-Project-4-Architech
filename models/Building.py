@@ -1,5 +1,6 @@
+# import requests
 from app import db
-from pony.orm import Required
+from pony.orm import Required, Optional
 from marshmallow import Schema, fields, post_load
 
 from .Style import Style
@@ -16,6 +17,9 @@ class Building(db.Entity):
     built = Required(int)
     image = Required(str)
     user = Required('User')
+    latitude = Required(float)
+    longitude = Required(float)
+    about = Optional(str)
 
 class BuildingSchema(Schema):
     id = fields.Int(dump_only=True)
@@ -30,6 +34,9 @@ class BuildingSchema(Schema):
     built = fields.Int(required=True)
     image = fields.Str(required=True)
     user = fields.Nested('UserSchema', exclude=('email', 'buildings'))
+    latitude = fields.Float(required=True)
+    longitude = fields.Float(required=True)
+    about = fields.Str()
 
     @post_load
     def load_style(self, data):

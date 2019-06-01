@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Auth from '../lib/Auth'
+import BuildingMap from './BuildingMap'
 
 class BuildingShow extends React.Component {
 
@@ -36,6 +37,7 @@ class BuildingShow extends React.Component {
 
 
   render() {
+    console.log(this.props, 'buildingshow.PROPS')
     const state = this.state.building
     if(!this.state.building) return null
 
@@ -73,17 +75,13 @@ class BuildingShow extends React.Component {
               </div>
             </div>
 
-
-
-
             <div className="media-content">
               <div className="content">
                 <h2 className="title is-4"> {state.address}</h2>
               </div>
             </div>
+            <BuildingMap date={state} />
           </div>
-
-          <hr />
         </div>
       </section>
     )
@@ -91,7 +89,7 @@ class BuildingShow extends React.Component {
 }
 
 export default BuildingShow
- 
+
 //this.state.constructions.map
 
 // <div className="media-content">

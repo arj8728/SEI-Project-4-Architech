@@ -28,7 +28,7 @@ class Navbar extends React.Component {
   render() {
     return (
       <nav className="navbar">
-        <div className="whiteband container">
+        <div className="container">
           <div className="navbar-brand">
 
             <Link to="/" >

@@ -28,7 +28,7 @@ class BuildingNew extends React.Component {
       .then(res => this.setState({ styles: res.data }))
   }
 
-
+  // Postcode should now be in state data?
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
     this.setState({ data })
@@ -46,7 +46,20 @@ class BuildingNew extends React.Component {
     })
       .then(() => this.props.history.push('/buildings'))
       .catch(err => this.setState({errors: err.response.data.errors}))
+
+    // Attempt to get long and lat from api below
+
+    // handleSubmit(e) {
+    e.preventDefault()
+    console.log(this.state)
+    axios.get(`https://api.postcodes.io/postcodes/${this.state.data.postcode}`)
+      .then(res => {
+        console.log(res.data.result)
+        const { longitude, latitude } = res.data.result
+        this.setState({ longitude, latitude })
+      })
   }
+
 
   sortedConstructions(){
     return this.state.constructions.sort((a,b) => {
@@ -54,7 +67,6 @@ class BuildingNew extends React.Component {
       return a.name < b.name ? -1 : 1
     })
   }
-
 
   sortedStyles(){
     return this.state.styles.sort((a,b) => {
@@ -64,7 +76,7 @@ class BuildingNew extends React.Component {
   }
 
   render() {
-    console.log(this.state.constructions)
+    console.log(this.state.data)
     return(
       <section className="section">
         <div className="container">
@@ -178,7 +190,6 @@ class BuildingNew extends React.Component {
                 {this.state.errors.postcode && <div className="help is-danger">{this.state.errors.postcode}</div>}
 
 
-
                 <div className="field">
                   <label className="label">Built</label>
                   <div className="control">
@@ -193,8 +204,6 @@ class BuildingNew extends React.Component {
                 </div>
                 {this.state.errors.built && <div className="help is-danger">{this.state.errors.built}</div>}
 
-
-
                 <button
                   className="button is-primary is-centered">
                       Add Building
@@ -205,7 +214,6 @@ class BuildingNew extends React.Component {
           </div>
         </div>
 
-
       </section>
     )
   }
@@ -213,13 +221,24 @@ class BuildingNew extends React.Component {
 
 export default BuildingNew
 
-// {this.state.styles.map(style =>
-//
-//   <select value ={this.state.style_id} onChange={this.handleChange} name="style_id">
-//     <option value="1">{style._id}</option>
-//     <option value="2">Greek Revival</option>
-//     <option value="3">Modern</option>
-//     <option value="4">Brutalist</option>
-//   </select>
-// </div>
-// )}
+
+// NEED STATE ABOVE TO CONTAIN POSTCODE
+// THEN, UPON handleChange...
+// MAKE AN GET AXIOS REQUEST TO GEOCODE TO GET LONGITUDE AND LATITUDE
+// SET LONGITUDE AND LATITUDE TO STATE
+// SEND THE STATE TO THE DB
+
+
+// TAKE THE USER INPUTTED POSTCODE
+// SEND POSTCODE TO THE BACKEND BY AXIOS
+// MAKE A REQUEST TO GEOCODE FOR LONG AND LAT
+// SEND THE LONG AND LAT BACK TO THE FRONTEND AND POPULATE STATE WITH IT
+// SEND THAT INFORMATION VIA AXIOS BACK TO THE BACKEND/ DB
+
+// In show, on handlesubmit,
+
+// name on onchange input goes on end of handle sub dollar axios get
+
+// marker MAPbox
+// set lat/long
+// add to map

@@ -1,10 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import Auth from '../lib/Auth'
 
 import BuildingCard from './BuildingCard'
-//import IndexMap from './IndexMap'
+import IndexMap from './IndexMap'
 
 class Index extends React.Component {
 
@@ -12,26 +11,14 @@ class Index extends React.Component {
     super()
 
     this.state = {
-      buildings: []
-      //MapView: true,
-      //ListView: false
+      buildings: [],
+      view: 'map'
     }
-    //this.MapView = this.MapView.bind(this)
-    //this.ListView = this.ListView.bind(this)
-    //}
+    this.setView = this.setView.bind(this)
+  }
 
-  // ListView() {
-  //     this.setState({
-  //       MapView: false,
-  //       ListView: true
-  //     })
-  //   }
-  //
-  //   MapView() {
-  //     this.setState({
-  //       MapView: true,
-  //       ListView: false
-  //     })
+  setView(view) {
+    this.setState({ view })
   }
 
   componentDidMount() {
@@ -43,8 +30,16 @@ class Index extends React.Component {
     return (
       <section className="section">
         <div className="container">
-          {Auth.isAuthenticated() && <Link to="/buildings/new" className="button">Add Building</Link>}
-          <hr />
+
+          <div className="level-left">
+            <button className="button is-danger fas fa-map-marker-alt" onClick={() => this.setView('map')}>Map view</button>
+            <button className="button is-danger fas fa-list" onClick={() => this.setView('list')}>List View</button>
+          </div>
+          {this.state.view === 'map' &&
+            <IndexMap className="show" buildings={this.state.buildings}/>
+          }
+          {this.state.view === 'list' &&
+
           <div className="columns is-multiline">
             {this.state.buildings.map(building =>
               <div key={building._id} className="column is-one-quarter-desktop is-one-third-tablet">
@@ -53,8 +48,8 @@ class Index extends React.Component {
                 </Link>
               </div>
             )}
-
           </div>
+          }
         </div>
       </section>
     )
@@ -62,3 +57,6 @@ class Index extends React.Component {
 }
 
 export default Index
+
+
+//   {Auth.isAuthenticated() && <Link to="/buildings/new" className="button">Add Building</Link>} //this was in render just after div className="container"

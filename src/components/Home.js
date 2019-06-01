@@ -17,6 +17,7 @@ class Home extends React.Component {
     }
   }
 
+
   componentDidMount() {
     setInterval(() => {
       let actualImage = this.state.actualImage + 1

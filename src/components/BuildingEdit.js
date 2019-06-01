@@ -12,8 +12,6 @@ class BuildingNew extends React.Component {
       data: {},
       errors: {}
 
-
-
     }
 
     this.handleChange = this.handleChange.bind(this)

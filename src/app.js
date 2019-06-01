@@ -12,9 +12,9 @@ import Login from './components/Login'
 
 import BuildingNew from './components/BuildingNew'
 import BuildingEdit from './components/BuildingEdit'
-import BuildingsIndex from './components/BuildingsIndex'
 import BuildingShow from './components/BuildingShow'
-import IndexMap from './components/IndexMap'
+import BuildingsIndex from './components/BuildingsIndex'
+//import IndexMap from './components/IndexMap'
 
 
 import 'bulma'
@@ -31,16 +31,13 @@ class App extends React.Component {
           <FlashMessages />
           <Switch>
 
-            <Route path="/buildings/map" component={IndexMap} />
-
             <Route path="/buildings/:id/Edit" component={BuildingEdit} />
             <Route path="/buildings/new" component={BuildingNew} />
+            <Route path="/buildings/:id" component={BuildingShow} />
+            <Route path="/buildings" component={BuildingsIndex} />
 
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
-
-            <Route path="/buildings/:id" component={BuildingShow} />
-            <Route path="/buildings" component={BuildingsIndex} />
             <Route path="/" component={Home}/>
 
           </Switch>
