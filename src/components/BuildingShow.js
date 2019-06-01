@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Auth from '../lib/Auth'
-import BuildingMap from './BuildingMap'
+//import BuildingMap from './BuildingMap'
 
 class BuildingShow extends React.Component {
 
@@ -80,7 +80,11 @@ class BuildingShow extends React.Component {
                 <h2 className="title is-4"> {state.address}</h2>
               </div>
             </div>
-            <BuildingMap date={state} />
+
+
+
+
+
           </div>
         </div>
       </section>
@@ -89,6 +93,15 @@ class BuildingShow extends React.Component {
 }
 
 export default BuildingShow
+
+
+
+// in line 85   <BuildingMap date={state} />  from before we removed the buildingMap component
+
+
+
+
+
 
 //this.state.constructions.map
 

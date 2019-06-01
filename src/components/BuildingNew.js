@@ -34,30 +34,36 @@ class BuildingNew extends React.Component {
     this.setState({ data })
   }
 
+  // code is rearranged below to allow us to get the postcode and then get the token
   handleSubmit(e) {
     e.preventDefault()
 
     const token = Auth.getToken()
 
-    axios.post('/api/buildings', this.state.data, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}` }
-    })
+    axios.get(`https://api.postcodes.io/postcodes/${this.state.data.postcode}`)
+      .then(res => {
+        console.log(res.data.result)
+        const { longitude, latitude } = res.data.result
+        // ...means data being spread is no longer an object with longitude and latitude next to it. ... is removing the { }, so now the contents of the inner brackets is state as key/value pairs, followed by lat as another (lat:value) key value pair, and longitude as another key value pair
+        this.setState({ data: {...this.state.data, longitude, latitude} })
+      })
+      .then(() => {
+        // for this.state.data we are passing in the long and lat above in this.state???
+        // this.state.data has to be in the same format as the model, therefore this.state.data needs to be a series of key value pairs, not the state object with any key value pairs that we've attached atteched it. 
+        return axios.post('/api/buildings', this.state.data, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        })
+      })
       .then(() => this.props.history.push('/buildings'))
       .catch(err => this.setState({errors: err.response.data.errors}))
 
     // Attempt to get long and lat from api below
 
     // handleSubmit(e) {
-    e.preventDefault()
-    console.log(this.state)
-    axios.get(`https://api.postcodes.io/postcodes/${this.state.data.postcode}`)
-      .then(res => {
-        console.log(res.data.result)
-        const { longitude, latitude } = res.data.result
-        this.setState({ longitude, latitude })
-      })
+
   }
 
 
@@ -131,7 +137,8 @@ class BuildingNew extends React.Component {
                 <div className="field">
                   <label className="label">Construction:</label>
                   <div className="select">
-                    <select onChange={this.handleChange} name="construction_id">
+                    <select name="construction_id" defaultValue="Choose a construction..." onChange={this.handleChange}>
+                      <option disabled>Choose a construction...</option>
                       {this.sortedConstructions().map(construction =>
                         <option
                           key={construction.id}
@@ -147,7 +154,8 @@ class BuildingNew extends React.Component {
                 <div className="field">
                   <label className="label">Architectural Style:</label>
                   <div className="select">
-                    <select onChange={this.handleChange} name="style_id">
+                    <select name="style_id" defaultValue="Choose an architectural style..." onChange={this.handleChange} >
+                      <option disabled>Choose an architectural style...</option>
                       {this.sortedStyles().map(style =>
                         <option
                           key={style.id}
@@ -221,6 +229,24 @@ class BuildingNew extends React.Component {
 
 export default BuildingNew
 
+
+// axios.get(`https://api.postcodes.io/postcodes/${this.state.data.postcode}`)
+//   .then(res => {
+//     console.log(res.data.result)
+//     const { longitude, latitude } = res.data.result
+//     this.setState({ longitude, latitude })
+//   })
+//   .then(() => {
+//     // for this.state.data we are passing in the long and lat above in this.state???
+//     return axios.post('/api/buildings', this.state.data, {
+//       headers: {
+//         'Content-Type': 'application/json',
+//         'Authorization': `Bearer ${token}`
+//       }
+//     })
+//   })
+//   .then(() => this.props.history.push('/buildings'))
+//   .catch(err => this.setState({errors: err.response.data.errors}))
 
 // NEED STATE ABOVE TO CONTAIN POSTCODE
 // THEN, UPON handleChange...
