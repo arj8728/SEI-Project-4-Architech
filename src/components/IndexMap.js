@@ -22,15 +22,6 @@ class IndexMap extends React.Component {
     else this.setState({ selectedBuilding: building })
   }
 
-  // From Arj's App.js
-  // componentDidMount() {
-  //   navigator.geolocation.watchPosition((position) => {
-  //     const { latitude, longitude } = position.coords
-  //     this.setState({ location: { lat: latitude, lon: longitude } })
-  //   })
-  //
-  // }
-
   render() {
     console.log(this.props, 'IndexMAP.PROPS')
     if (!this.props.buildings) {
@@ -83,6 +74,15 @@ class IndexMap extends React.Component {
 }
 
 export default IndexMap
+
+// From Arj's App.js
+// componentDidMount() {
+//   navigator.geolocation.watchPosition((position) => {
+//     const { latitude, longitude } = position.coords
+//     this.setState({ location: { lat: latitude, lon: longitude } })
+//   })
+//
+// }
 
 // ARJ and Laura's Map.js
 //

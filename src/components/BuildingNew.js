@@ -1,7 +1,17 @@
 import React from 'react'
 import axios from 'axios'
+import ReactFilestack from 'filestack-react'
 
 import Auth from '../lib/Auth'
+
+const choices = {
+  accept: 'image/*',
+  transformations: {
+    rotate: true,
+    crop: true,
+    circle: true
+  }
+}
 
 class BuildingNew extends React.Component {
 
@@ -13,13 +23,16 @@ class BuildingNew extends React.Component {
       errors: {},
       styles: [],
       constructions: []
+
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    // next line creates a bind undefined error
+    // this.handleUploadedImages = this.handleUploadedImages.bind(this)
   }
 
-
+  // for dropdowns
   componentDidMount() {
     axios.get('/api/constructions')
       .then(res => this.setState({ constructions: res.data }))
@@ -48,7 +61,7 @@ class BuildingNew extends React.Component {
         this.setState({ data: {...this.state.data, longitude, latitude} })
       })
       .then(() => {
-        // for this.state.data we are passing in the long and lat above in this.state???
+        // for this.state.data we are passing in the long and lat above in this.state
         // this.state.data has to be in the same format as the model, therefore this.state.data needs to be a series of key value pairs, not the state object with any key value pairs that we've attached atteched it.
         return axios.post('/api/buildings', this.state.data, {
           headers: {
@@ -60,12 +73,12 @@ class BuildingNew extends React.Component {
       .then(() => this.props.history.push('/buildings'))
       .catch(err => this.setState({errors: err.response.data.errors}))
 
-    // Attempt to get long and lat from api below
-
-    // handleSubmit(e) {
-
   }
 
+  handleUploadImages(result) {
+    const data = { ...this.state.data, image: result.filesUploaded[0].url }
+    this.setState({ data })
+  }
 
   sortedConstructions(){
     return this.state.constructions.sort((a,b) => {
@@ -109,15 +122,15 @@ class BuildingNew extends React.Component {
 
                 <div className="field">
                   <label className="label">Image</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      name="image"
-                      placeholder="eg: https://bigbuilding.png"
-                      onChange={this.handleChange}
-                      value={this.state.data.image || ''}
-                    />
-                  </div>
+                  <ReactFilestack
+                    apikey="A0y7LFvTfTXGeE0Xy0f9vz"
+                    buttonText="Upload Building Photo"
+                    buttonClass="button"
+                    options={choices}
+                    preload={true}
+                    onSuccess={this.handleUploadedImages}
+                  />
+                  {this.state.data.image && <img src={this.state.data.image} />}
                   {this.state.errors.image && <div className="help is-danger">{this.state.errors.image}</div>}
                 </div>
 
@@ -213,7 +226,7 @@ class BuildingNew extends React.Component {
                 {this.state.errors.built && <div className="help is-danger">{this.state.errors.built}</div>}
 
                 <button
-                  className="button is-primary is-centered">
+                  className="button is-warning is-centered">
                       Add Building
                 </button>
               </form>

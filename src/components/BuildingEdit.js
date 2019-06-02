@@ -1,9 +1,18 @@
 import React from 'react'
 import axios from 'axios'
-
 import Auth from '../lib/Auth'
+import ReactFilestack from 'filestack-react'
 
-class BuildingNew extends React.Component {
+const choices = {
+  accept: 'image/*',
+  transformations: {
+    rotate: true,
+    crop: true,
+    circle: true
+  }
+}
+
+class BuildingEdit extends React.Component {
 
   constructor() {
     super()
@@ -16,6 +25,7 @@ class BuildingNew extends React.Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleUploadedImages = this.handleUploadedImages.bind(this)
   }
 
   componentDidMount() {
@@ -56,9 +66,9 @@ class BuildingNew extends React.Component {
                   <div className="control">
                     <input
                       className="input"
-                      type="text"
-                      name="title"
-                      placeholder="eg: Building in London"
+                      name="name"
+                      value={this.state.data.name || ''}
+                      placeholder="eg: 5 London Road"
                       onChange={this.handleChange} />
                   </div>
                   {this.state.errors.name && <div className="help is-danger">{this.state.errors.name}</div>}
@@ -66,18 +76,22 @@ class BuildingNew extends React.Component {
 
 
                 <div className="field">
+
                   <label className="label">Image</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      name="image"
-                      placeholder="eg: https://gameofthrones.fandom.com/jon-snow.png"
-                      onChange={this.handleChange}
-                      value={this.state.data.image || ''}
-                    />
-                  </div>
+                  <ReactFilestack
+                    apikey="A0y7LFvTfTXGeE0Xy0f9vz"
+                    buttonText="Upload Photo Cabin"
+                    buttonClass="button"
+                    options={choices}
+                    preload={true}
+                    onSuccess={this.handleUploadedImages}
+                  />
+                  {this.state.data.image && <img src={this.state.data.image} />}
+
                   {this.state.errors.image && <div className="help is-danger">{this.state.errors.image}</div>}
                 </div>
+
+
 
 
                 <div className="field">
@@ -169,4 +183,4 @@ class BuildingNew extends React.Component {
   }
 }
 
-export default BuildingNew
+export default BuildingEdit

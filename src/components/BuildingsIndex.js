@@ -2,10 +2,11 @@ import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
+
 import BuildingCard from './BuildingCard'
 import IndexMap from './IndexMap'
 
-class Index extends React.Component {
+class BuildingsIndex extends React.Component {
 
   constructor() {
     super()
@@ -56,7 +57,7 @@ class Index extends React.Component {
   }
 }
 
-export default Index
+export default BuildingsIndex
 
 
 //   {Auth.isAuthenticated() && <Link to="/buildings/new" className="button">Add Building</Link>} //this was in render just after div className="container"

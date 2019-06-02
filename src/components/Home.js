@@ -1,51 +1,77 @@
 import React from 'react'
-
-const imagesBuildings  =[
-  'https://images.unsplash.com/photo-1490642914619-7955a3fd483c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1070&q=80',
-  'https://pixel.nymag.com/imgs/daily/urbanist/2018/05/30/london-architecture/st-pauls-cathedral.w710.h473.jpg',
-  'https://www.britishtours.com/storage/files/architecture-city_4f8dc0ebd4bfe.jpg',
-  'https://images.unsplash.com/photo-1486623021874-2d24a5b1e148?ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80'
-]
-
-class Home extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      images: imagesBuildings,
-      actualImage: 0
-    }
-  }
+// import { Redirect } from 'react-router'
+import { Link } from 'react-router-dom'
 
 
-  componentDidMount() {
-    setInterval(() => {
-      let actualImage = this.state.actualImage + 1
-      actualImage === this.state.images.length ? actualImage = 0:null
-      this.setState({ actualImage })
-    }, 1900)
-  }
+const Home = () => {
 
-  render() {
-    return (
-      <section className="hero is-fullheight" style={{
-        backgroundImage: `url(${imagesBuildings[this.state.actualImage]})`
-      }}>
-        <div className="hero-body">
-          <div className="container">
-            <h1 className="title hometitle1">Architech</h1>
-            <h2 className="subtitle1">London Buildings</h2>
-          </div>
+  //   if(Auth.getToken()){
+  //   return (<Redirect to="/BuildingsIndex" />)
+  // } else {
 
+  return (
+    <div className="home-page">
+      <div className="container">
+        <h1 className="title hometitle1">Architech</h1>
+      </div>
+
+      <div className="card-panel welcome">
+        <h5 className="intro-logo">Welcome to Architech</h5>
+        <h6>A site for lovers of architecture. Join a community of like-minded, built-environment focussed enthusiasts and professionals. Architech is not just a site for the biggest and most famous buildings. Purvey the unique, undiscovered finds of  fellow Architechs by viewing their uploads, and sharing your own.</h6>
+        <br />
+        <Link to='/register' className="reg-now-butt tab button is-warning has-text-grey">  Register Now  </Link>
+        <br />
+        <Link to='/register' className="reg-later-butt tab button is-warning has-text-grey">Register Later</Link>
+        <br />
+        <div>
+          <span>
+               Already registered?
+            <Link to="/login">&nbsp;Login here.</Link>
+          </span>
         </div>
-
-      </section>
-
-    )
-  }
+        <br />
+      </div>
+    </div>
+  )
 }
 
 
-
-
 export default Home
+
+
+//
+// import React from 'react'
+//
+//
+// const imagesBuildings  =[
+//   'https://images.unsplash.com/photo-1490642914619-7955a3fd483c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1070&q=80',
+//   'https://pixel.nymag.com/imgs/daily/urbanist/2018/05/30/london-architecture/st-pauls-cathedral.w710.h473.jpg',
+//   'https://www.britishtours.com/storage/files/architecture-city_4f8dc0ebd4bfe.jpg',
+//   'https://images.unsplash.com/photo-1486623021874-2d24a5b1e148?ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80'
+// ]
+//
+// class Home extends React.Component {
+//   constructor(props) {
+//     super(props)
+//
+//     this.state = {
+//       images: imagesBuildings,
+//       actualImage: 0
+//     }
+//   }
+//
+
+
+// <h2 className="subtitle1">London Buildings</h2>
+
+// <section className="hero is-fullheight" style={{
+//   backgroundImage: `url(${imagesBuildings[this.state.actualImage]})`
+// }}>
+//   <div className="hero-body">
+//     <div className="container">
+//       <h1 className="title hometitle1">Architech</h1>
+//     </div>
+//
+//   </div>
+//
+// </section>

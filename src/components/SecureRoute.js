@@ -14,5 +14,5 @@
 //   Flash.setMessage('danger', 'You are not authorised to do that')
 //   return <Redirect to="/login" />
 // }
-// 
+//
 // export default SecureRoute

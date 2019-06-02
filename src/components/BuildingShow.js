@@ -20,6 +20,13 @@ class BuildingShow extends React.Component {
   componentDidMount() {
     axios.get(`/api/buildings/${this.props.match.params.id}`)
       .then(res => this.setState({ building: res.data }))
+
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition((position) => {
+        const { latitude, longitude } = position.coords
+        this.setState({ location: { lat: latitude, lon: longitude } })
+      })
+    }
   }
 
   handleDelete() {
@@ -37,7 +44,7 @@ class BuildingShow extends React.Component {
 
 
   render() {
-    console.log(this.props, 'buildingshow.PROPS')
+    console.log(this.state.lat)
     const state = this.state.building
     if(!this.state.building) return null
 
@@ -48,12 +55,18 @@ class BuildingShow extends React.Component {
             <div className="level-left">
               <h1 className="title is-1">{state.name}</h1>
             </div>
+
             {this.canModify() &&
               <div className="level-right">
-                <Link to={`/buildings/${state._id}/BuildingEdit`} className="button is-primary">Edit</Link>
-                <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
+                <Link to={`/buildings/${state._id}/BuildingEdit`} className="button is-warning is-outlined">delete</Link>
+                <button className="button is-danger is-outlined" onClick={this.handleDelete}>Delete</button>
               </div>
             }
+          </div>
+          <div className="media-content">
+            <div className="content">
+              <h2 className="title is-5"> {state.address}</h2>
+            </div>
           </div>
           <hr />
 
@@ -62,6 +75,7 @@ class BuildingShow extends React.Component {
               <figure className="image">
                 <img src={state.image} alt={state.name} />
               </figure>
+
             </div>
 
             <div className="media-content">
@@ -77,13 +91,17 @@ class BuildingShow extends React.Component {
 
             <div className="media-content">
               <div className="content">
-                <h2 className="title is-4"> {state.address}</h2>
+                <p className="title is-6"> {state.about}</p>
               </div>
             </div>
 
 
+            <br />
 
+            <button className="button is-warning has-text-grey dir-btn is-outlined is-info"><a href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.lat},${this.state.lon}&destination=${state.latitude},${state.longitude}`} target="blank">Directions in Google Maps</a></button>
+            <br />
 
+            <button className="button is-success has-text-grey dir-btn is-outlined is-info"><a href={`https://citymapper.com/directions?startcoord=${this.state.lat},${this.state.lon}&endcoord=${state.latitude},${state.longitude}`} target="blank">Directions in CityMapper</a></button>
 
           </div>
         </div>
@@ -91,7 +109,6 @@ class BuildingShow extends React.Component {
     )
   }
 }
-
 export default BuildingShow
 
 

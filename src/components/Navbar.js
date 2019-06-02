@@ -32,7 +32,7 @@ class Navbar extends React.Component {
           <div className="navbar-brand">
 
             <Link to="/" >
-              <img  className="logo" src="../images/logo.jpg"/>
+              <img  className="logo" src="https://clipground.com/images/peters-church-clipart-7.jpg"/>
             </Link>
 
             <a role="button" className={`navbar-burger${this.state.active ? ' is-active' : ''}`} onClick={this.toggleActive}>
