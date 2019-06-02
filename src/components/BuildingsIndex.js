@@ -14,14 +14,39 @@ class BuildingsIndex extends React.Component {
     this.state = {
       buildings: [],
       styles: [],
+      filteredBuildings: [],
+      query: '',
       view: 'map'
     }
     this.setView = this.setView.bind(this)
+    this.filterBuildings = this.filterBuildings.bind(this)
   }
 
   setView(view) {
     this.setState({ view })
   }
+
+  // *****
+  handleInputChange() {
+    this.setState({
+      query: this.search.value
+    }, this.filterBuildings)
+
+  }
+
+  filterBuildings(){
+    let filteredBuildings = this.state.filteredBuildings
+    const buildings = this.state.buildings
+    const query = this.state.query
+    filteredBuildings = buildings.filter(building =>
+      building.name.toLowerCase().includes(query.toLowerCase()) ||
+    building.architect.toLowerCase().includes(query.toLowerCase())
+    )
+    this.setState({ filteredBuildings: filteredBuildings })
+    console.log(this.state)
+
+  }
+  // *****
 
   componentDidMount() {
     axios('/api/buildings')
@@ -33,7 +58,6 @@ class BuildingsIndex extends React.Component {
     return (
       <section className="section">
         <div className="container">
-
           <div className="level-left">
             <button className="button is-danger fas fa-map-marker-alt" onClick={() => this.setView('map')}>Map view</button>
             <button className="button is-danger fas fa-list" onClick={() => this.setView('list')}>List View</button>
@@ -42,8 +66,45 @@ class BuildingsIndex extends React.Component {
             <IndexMap className="show" buildings={this.state.buildings}/>
           }
           {this.state.view === 'list' &&
-
           <div className="columns is-multiline">
+
+
+
+            <div className="container">
+              <form>
+                <input
+                  placeholder="Search by architectural style"
+                  ref={input => this.search = input}
+                  // value={this.search}
+                  onChange={this.handleInputChange}
+                  className="form-input subtitle is-size-6-mobile"
+                />
+              </form>
+            </div>
+            <div className="container">
+              <div>
+                {this.state.query === ''
+                  ?
+                  <h1 className="explore-title">All Buildings</h1>
+                  :
+                  <h1 className="explore-title">Search Results</h1>}
+              </div>
+              {!this.state.filteredBuildings.length > 0
+                ?
+                <div className="columns is-mobile">
+                  <p className="column is-size-4 is-12 has-text-centered">No results found</p>
+                </div>
+                :
+                <div>
+                  {this.state.filteredBuildings && this.state.filteredBuildings.map(
+                    filteredBuilding => <BuildingCard key={filteredBuilding._id} filteredBuilding={filteredBuilding}/>
+                  )}
+                </div>
+              }
+
+            </div>
+
+
             {this.state.buildings.map(building =>
               <div key={building._id} className="column is-one-quarter-desktop is-one-third-tablet">
                 <Link to={`/buildings/${building._id}`}>
@@ -51,6 +112,7 @@ class BuildingsIndex extends React.Component {
                 </Link>
               </div>
             )}
+
           </div>
           }
         </div>

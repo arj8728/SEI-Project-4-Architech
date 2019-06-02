@@ -216,4 +216,33 @@ with db_session():
     user=char
     )
 
+    Building(
+    name='New River Head',
+    image='https://assets.themodernhouse.com/wp-content/uploads/tmh/7940/26-11.jpg',
+    architect='unknown,',
+    style=neo_classical,
+    address='173 Roseberry Avenue, London',
+    latitude=51.52740,
+    longitude=-0.10691,
+    postcode='EC1R 4TY',
+    construction=brick,
+    built=1635,
+    about='New River Head was constructed in 1920 to a design by Herbert Austen Hall, as the headquarters of the Metropolitan Water Board. It was listed Grade II by English Heritage in 1950. Converted into flats in the 1990s this most impressive building retains a gigantic ballroom entrance foyer. It has a gym, a porter, cellars, a substantial communal garden.',
+    user=char
+    )
+
+    Building(
+    name='The Captain Kidd',
+    image='https://i.pinimg.com/originals/a0/3e/e6/a03ee625b4bf1038f14933c274b1984a.jpg',
+    architect='Herbert Austen Hall,',
+    style=victorian,
+    address='108 Wapping High Street,  London',
+    latitude=51.50302,
+    longitude=-0.06012,
+    postcode='E1W 2NE',
+    construction=brick,
+    built=1850,
+    about='Former Victorian warsehouse converted to a Samuel Smith\'s pub in 1990. The yard to its east (now a beer garden) was the site for the public execution of pirates, usually by hanging. On 23 May 1701, the Scottish sailor William Kidd was hanged for piracy on that very spot. An engraving of the grizzly event still exists and it is easy to establish that this was the spot because, in the distance, is Rotherhithe’s church. The site was known as Execution Dock. The name ‘Captain Kidd’ was an obvious choice for the hostelry.',
+    user=char
+        )
     db.commit()
