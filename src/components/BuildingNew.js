@@ -225,6 +225,20 @@ class BuildingNew extends React.Component {
                 </div>
                 {this.state.errors.built && <div className="help is-danger">{this.state.errors.built}</div>}
 
+                <div className="field">
+                  <label className="label">About</label>
+                  <div className="control">
+                    <input
+                      className="input"
+                      name="about"
+                      placeholder="eg: The building's Portland Stone façade masks a..."
+                      value={this.state.data.about || ''}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+                {this.state.errors.about && <div className="help is-danger">{this.state.errors.about}</div>}
+
                 <button
                   className="button is-warning is-centered">
                       Add Building

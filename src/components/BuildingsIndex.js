@@ -13,6 +13,7 @@ class BuildingsIndex extends React.Component {
 
     this.state = {
       buildings: [],
+      styles: [],
       view: 'map'
     }
     this.setView = this.setView.bind(this)
@@ -26,6 +27,7 @@ class BuildingsIndex extends React.Component {
     axios('/api/buildings')
       .then(res => this.setState({ buildings: res.data }))
   }
+
 
   render() {
     return (
