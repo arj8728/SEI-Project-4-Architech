@@ -64,7 +64,7 @@ class BuildingEdit extends React.Component {
             <div className="column is-half-desktop is-two-thirds-tablet">
 
 
-              <h1 className="title is-3"> Add a new Building</h1>
+              <h1 className="title is-3"> Edit Building</h1>
               <form onSubmit={this.handleSubmit}>
 
                 <div className="field">
@@ -85,7 +85,7 @@ class BuildingEdit extends React.Component {
 
                   <label className="label">Image</label>
                   <ReactFilestack
-                    apikey="A0y7LFvTfTXGeE0Xy0f9vz"
+                    apikey= {process.env.FILESTACK_TOKEN}
                     buttonText="Upload Photo Building"
                     buttonClass="button"
                     options={choices}

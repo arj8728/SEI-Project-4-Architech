@@ -44,14 +44,14 @@ class BuildingShow extends React.Component {
 
   canModify() {
     // if the  user is logged in AND the user's id matches the buildings' user's id return true
-    return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.building.user._id
+    return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.building.user.id
   }
 
 
   render() {
     if(!this.state.building) return null
 
-    const images = this.state.building.image
+    const images = this.state.building.images
     const photos = images
     console.log(photos, 'photos')
     console.log(this.state, 'state')
@@ -68,10 +68,11 @@ class BuildingShow extends React.Component {
 
             {this.canModify() &&
               <div className="level-right">
-                <Link to={`/buildings/${building.id}/BuildingEdit`} className="button is-warning is-outlined">delete</Link>
+                <Link to={`/buildings/${building.id}/Edit`} className="button is-warning is-outlined">Edit</Link>
                 <button className="button is-danger is-outlined" onClick={this.handleDelete}>Delete</button>
               </div>
             }
+
           </div>
           <div className="media-content">
             <div className="content">

@@ -60,7 +60,7 @@ class IndexMap extends React.Component {
 
                   <div>
                     <h3>{this.state.selectedBuilding.name}</h3>
-                    <img className="popupimage"src={this.state.selectedBuilding.image} alt={this.state.selectedBuilding.name}/>
+                    <img className="popupimage"src={this.state.selectedBuilding.images} alt={this.state.selectedBuilding.name}/>
                   </div>
                 </Popup>
               </Link>

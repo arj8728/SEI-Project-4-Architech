@@ -112,7 +112,7 @@ class BuildingNew extends React.Component {
                 <div className="field">
                   <label className="label">Image</label>
                   <ReactFilestack
-                    apikey="A0y7LFvTfTXGeE0Xy0f9vz"
+                    apikey= {process.env.FILESTACK_TOKEN}
                     buttonText="Upload Building Photo"
                     buttonClass="button"
                     options={{

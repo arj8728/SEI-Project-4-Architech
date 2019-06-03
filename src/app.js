@@ -30,7 +30,7 @@ class App extends React.Component {
           <FlashMessages />
           <Switch>
 
-            <Route path="/buildings/:id/Edit" component={BuildingEdit} />
+            <Route path="/buildings/:id/edit" component={BuildingEdit} />
             <Route path="/buildings/new" component={BuildingNew} />
             <Route path="/buildings/:id" component={BuildingShow} />
             <Route path="/buildings" component={BuildingsIndex} />
