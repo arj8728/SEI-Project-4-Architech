@@ -106,10 +106,11 @@ class BuildingShow extends React.Component {
 
             <br />
 
-            <button className="button is-success has-text-grey dir-btn is-outlined is-info"><a href={`https://citymapper.com/directions?startcoord=${this.state.location.lat},${this.state.location.lon}&endcoord=${building.latitude},${building.longitude}`} target="blank">Directions in CityMapper</a></button>
-
             <button className="button is-warning has-text-grey dir-btn is-outlined is-info"><a href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.location.lat},${this.state.location.lon}&destination=${building.latitude},${building.longitude}`} target="blank">Directions in Google Maps</a></button>
+
             <br />
+
+            <button className="button is-success has-text-grey dir-btn is-outlined is-info"><a href={`https://citymapper.com/directions?startcoord=${this.state.location.lat},${this.state.location.lon}&endcoord=${building.latitude},${building.longitude}`} target="blank">Directions in CityMapper</a></button>
 
           </div>
         </div>

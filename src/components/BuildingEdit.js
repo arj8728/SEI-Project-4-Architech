@@ -3,14 +3,14 @@ import axios from 'axios'
 import Auth from '../lib/Auth'
 import ReactFilestack from 'filestack-react'
 
-const choices = {
-  accept: 'image/*',
-  transformations: {
-    rotate: true,
-    crop: true,
-    circle: true
-  }
-}
+// const choices = {
+//   accept: 'image/*',
+//   transformations: {
+//     rotate: true,
+//     crop: true,
+//     circle: true
+//   }
+// }
 
 class BuildingEdit extends React.Component {
 
@@ -19,7 +19,10 @@ class BuildingEdit extends React.Component {
 
     this.state = {
       data: {},
-      errors: {}
+      errors: {},
+      styles: [],
+      constructions: [],
+      file: null
 
     }
 
@@ -31,7 +34,12 @@ class BuildingEdit extends React.Component {
   componentDidMount() {
     axios.get('/api/constructions')
       .then(res => this.setState({ constructions: res.data }))
+
+    axios.get('/api/styles')
+      .then(res => this.setState({ styles: res.data }))
   }
+
+
 
   handleChange(e) {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
@@ -43,17 +51,42 @@ class BuildingEdit extends React.Component {
     this.setState({ data })
   }
 
-
   handleSubmit(e) {
     e.preventDefault()
-
     const token = Auth.getToken()
+    axios.get(`https://api.postcodes.io/postcodes/${this.state.data.postcode}`)
+      .then(res => {
+        console.log(res.data.result)
+        const { longitude, latitude } = res.data.result
+        // ...means data being spread is no longer an object with longitude and latitude next to it. ... is removing the { }, so now the contents of the inner brackets is state as key/value pairs, followed by lat as another (lat:value) key value pair, and longitude as another key value pair
+        this.setState({ data: {...this.state.data, longitude, latitude} })
+      })
+      .then(() => {
 
-    axios.post('/api/buildings', this.state.data, {
-      headers: { 'Authorization': `Bearer ${token}` }
-    })
+        return axios.post('/api/buildings', this.state.data, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        })
+      })
       .then(() => this.props.history.push('/buildings'))
-      .catch(err => this.setState({ errors: err.response.data.errors }))
+      .catch(err => this.setState({errors: err.response.data.errors}))
+
+  }
+
+  sortedConstructions(){
+    return this.state.constructions.sort((a,b) => {
+      if(a.name === b.name) return 0
+      return a.name < b.name ? -1 : 1
+    })
+  }
+
+  sortedStyles(){
+    return this.state.styles.sort((a,b) => {
+      if(a.name === b.name) return 0
+      return a.name < b.name ? -1 : 1
+    })
   }
 
   render() {
@@ -72,6 +105,7 @@ class BuildingEdit extends React.Component {
                   <div className="control">
                     <input
                       className="input"
+                      type="text"
                       name="name"
                       value={this.state.data.name || ''}
                       placeholder="eg: 5 London Road"
@@ -88,10 +122,14 @@ class BuildingEdit extends React.Component {
                     apikey= {process.env.FILESTACK_TOKEN}
                     buttonText="Upload Photo Building"
                     buttonClass="button"
-                    options={choices}
+                    options={{
+                      accept: ['image/*'],
+                      maxFiles: 4
+                    }}
                     preload={true}
-                    maxFiles={4}
                     onSuccess={this.handleUploadedImages}
+
+
                   />
                   {this.state.data.image && <img src={this.state.data.image} />}
 
@@ -114,19 +152,40 @@ class BuildingEdit extends React.Component {
                   {this.state.errors.architect && <div className="help is-danger">{this.state.errors.architect}</div>}
                 </div>
 
+                <div className="field">
+                  <label className="label">Construction:</label>
+                  <div className="select">
+                    <select name="construction_id" defaultValue="Choose a construction..." onChange={this.handleChange}>
+                      <option disabled>Choose a construction...</option>
+                      {this.sortedConstructions().map(construction =>
+                        <option
+                          key={construction.id}
+                          value={construction.id}>
+                          {construction.name}
+                        </option>
+                      )}
+                    </select>
+                  </div>
+                  {this.state.errors.construction_id && <div className="help is-danger">{this.state.errors.construction_id}</div>}
+                </div>
 
                 <div className="field">
-                  <label className="label">Architectural Styles:</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type="text"
-                      name="style"
-                      placeholder="eg: 4"
-                      onChange={this.handleChange} />
+                  <label className="label">Architectural Style:</label>
+                  <div className="select">
+                    <select name="style_id" defaultValue="Choose an architectural style..." onChange={this.handleChange} >
+                      <option disabled>Choose an architectural style...</option>
+                      {this.sortedStyles().map(style =>
+                        <option
+                          key={style.id}
+                          value={style.id}>
+                          {style.name}
+                        </option>
+                      )}
+                    </select>
                   </div>
-                  {this.state.errors.style&& <div className="help is-danger">{this.state.errors.style}</div>}
+                  {this.state.errors.style_id && <div className="help is-danger">{this.state.errors.style_id}</div>}
                 </div>
+
 
                 <div className="field">
                   <label className="label">Address</label>
@@ -156,34 +215,29 @@ class BuildingEdit extends React.Component {
                 </div>
                 {this.state.errors.postcode && <div className="help is-danger">{this.state.errors.postcode}</div>}
 
-
-
                 <div className="field">
-                  <label className="label">Built</label>
+                  <label className="label">About</label>
                   <div className="control">
                     <input
                       className="input"
-                      name="built"
-                      placeholder="eg: 1806"
-                      value={this.state.data.built || ''}
+                      name="about"
+                      placeholder="eg: The building's Portland Stone façade masks a..."
+                      value={this.state.data.about || ''}
                       onChange={this.handleChange}
                     />
                   </div>
                 </div>
-                {this.state.errors.built && <div className="help is-danger">{this.state.errors.built}</div>}
-
-
+                {this.state.errors.about && <div className="help is-danger">{this.state.errors.about}</div>}
 
                 <button
-                  className="button is-primary is-centered">
-                    Submit
+                  className="button is-warning is-centered">
+                      Edit Building
                 </button>
-              </form>
 
+              </form>
             </div>
           </div>
         </div>
-
 
       </section>
     )
