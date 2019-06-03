@@ -45,7 +45,7 @@ class BuildingsIndex extends React.Component {
 
 
             {this.state.buildings.map(building =>
-              <div key={building._id} className="column is-one-quarter-desktop is-one-third-tablet">
+              <div key={building.id} className="column is-one-quarter-desktop is-one-third-tablet">
                 <Link to={`/buildings/${building.id}`}>
                   <BuildingCard {...building} />
                 </Link>

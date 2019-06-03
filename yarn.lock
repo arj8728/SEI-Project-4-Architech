@@ -5407,6 +5407,11 @@ react-dom@^16.8.6:
     prop-types "^15.6.2"
     scheduler "^0.13.6"
 
+react-image-show@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/react-image-show/-/react-image-show-0.3.4.tgz#fcac4244d5b4c61e1757a74b916895c7d97fe4e7"
+  integrity sha512-ZOI9RANYCokxQ31yrA24EpK4aDcga/easgdVFDpPiDQMoXYrQet5U4hn0iHxStLS38hOZYXYoSLLOUqpc3quxA==
+
 react-input-autosize@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/react-input-autosize/-/react-input-autosize-2.2.1.tgz#ec428fa15b1592994fb5f9aa15bb1eb6baf420f8"

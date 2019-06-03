@@ -1,6 +1,6 @@
 # import requests
 from app import db
-from pony.orm import Required, Optional
+from pony.orm import Required, Optional, StrArray
 from marshmallow import Schema, fields, post_load
 
 from .Style import Style
@@ -15,7 +15,7 @@ class Building(db.Entity):
     postcode = Required(str)
     construction = Required('Construction')
     built = Required(int)
-    image = Required(str)
+    image = Required(StrArray) # changed from (str) as list of images for carousel
     user = Required('User')
     latitude = Required(float)
     longitude = Required(float)
@@ -32,7 +32,7 @@ class BuildingSchema(Schema):
     construction = fields.Nested('ConstructionSchema', exclude=('buildings',), dump_only=True)
     construction_id = fields.Int(load_only=True)
     built = fields.Int(required=True)
-    image = fields.Str(required=True)
+    image = fields.List(fields.Str)  # before Carousel was Str(required=True)
     user = fields.Nested('UserSchema', exclude=('email', 'buildings'))
     latitude = fields.Float(required=True)
     longitude = fields.Float(required=True)
