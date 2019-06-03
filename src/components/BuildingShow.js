@@ -11,7 +11,8 @@ class BuildingShow extends React.Component {
     super(props) // because this component needs `this.props`
 
     this.state = {
-      building: null
+      building: null,
+      location: {}
     }
 
     this.handleDelete = this.handleDelete.bind(this)
@@ -21,13 +22,14 @@ class BuildingShow extends React.Component {
     axios.get(`/api/buildings/${this.props.match.params.id}`)
       .then(res => this.setState({ building: res.data }))
 
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition((position) => {
-        const { latitude, longitude } = position.coords
-        this.setState({ location: { lat: latitude, lon: longitude } })
-      })
-    }
+
+    navigator.geolocation.watchPosition((position) => {
+      const { latitude, longitude } = position.coords
+      // setting location on the state. So, latititude and longitude are now on this.state.location.lat and this.state.location.lon
+      this.setState({ location: { lat: latitude, lon: longitude } })
+    })
   }
+
 
   handleDelete() {
     const token = Auth.getToken()
@@ -98,10 +100,10 @@ class BuildingShow extends React.Component {
 
             <br />
 
-            <button className="button is-warning has-text-grey dir-btn is-outlined is-info"><a href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.lat},${this.state.lon}&destination=${state.latitude},${state.longitude}`} target="blank">Directions in Google Maps</a></button>
+            <button className="button is-warning has-text-grey dir-btn is-outlined is-info"><a href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.location.lat},${this.state.location.lon}&destination=${state.latitude},${state.longitude}`} target="blank">Directions in Google Maps</a></button>
             <br />
 
-            <button className="button is-success has-text-grey dir-btn is-outlined is-info"><a href={`https://citymapper.com/directions?startcoord=${this.state.lat},${this.state.lon}&endcoord=${state.latitude},${state.longitude}`} target="blank">Directions in CityMapper</a></button>
+            <button className="button is-success has-text-grey dir-btn is-outlined is-info"><a href={`https://citymapper.com/directions?startcoord=${this.state.location.lat},${this.state.location.lon}&endcoord=${state.latitude},${state.longitude}`} target="blank">Directions in CityMapper</a></button>
 
           </div>
         </div>

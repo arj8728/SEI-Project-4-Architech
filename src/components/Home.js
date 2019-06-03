@@ -21,7 +21,7 @@ const Home = () => {
         <br />
         <Link to='/register' className="reg-now-butt tab button is-warning has-text-grey">  Register Now  </Link>
         <br />
-        <Link to='/register' className="reg-later-butt tab button is-warning has-text-grey">Register Later</Link>
+        <Link to='/buildings' className="reg-later-butt tab button is-warning has-text-grey">Register Later</Link>
         <br />
         <div>
           <span>
