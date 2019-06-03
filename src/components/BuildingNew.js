@@ -4,15 +4,6 @@ import ReactFilestack from 'filestack-react'
 
 import Auth from '../lib/Auth'
 
-const choices = {
-  accept: 'image/*',
-  transformations: {
-    rotate: true,
-    crop: true,
-    circle: true
-  }
-}
-
 class BuildingNew extends React.Component {
 
   constructor() {
@@ -74,7 +65,7 @@ class BuildingNew extends React.Component {
   }
 
   handleUploadedImages(result) {
-    const data = { ...this.state.data, image: result.filesUploaded[0].url }
+    const data = { ...this.state.data, images: result.filesUploaded.map(file => file.url) }
     this.setState({ data })
   }
 
@@ -124,7 +115,10 @@ class BuildingNew extends React.Component {
                     apikey="A0y7LFvTfTXGeE0Xy0f9vz"
                     buttonText="Upload Building Photo"
                     buttonClass="button"
-                    options={choices}
+                    options={{
+                      accept: ['image/*'],
+                      maxFiles: 4
+                    }}
                     preload={true}
                     onSuccess={this.handleUploadedImages}
                   />

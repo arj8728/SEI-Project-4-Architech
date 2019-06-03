@@ -8,7 +8,7 @@ const BuildingCard = ({ name, image, architect }) => {
       </div>
       <div className="card-image">
         <figure className="image">
-          <img src={image} alt={name} />
+          <img src={image[0]} alt={name} />
         </figure>
       </div>
       <div className="card-content">

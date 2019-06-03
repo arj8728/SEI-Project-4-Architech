@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Auth from '../lib/Auth'
+import Slider from './Slider'
 
 class BuildingShow extends React.Component {
 
@@ -21,6 +22,9 @@ class BuildingShow extends React.Component {
     axios.get(`/api/buildings/${this.props.match.params.id}`)
       .then(res => this.setState({ building: res.data }))
 
+    //***From Arj's
+    axios('/api/buildings')
+      .then(res => this.setState({ buildings: res.data }))
 
     navigator.geolocation.watchPosition((position) => {
       const { latitude, longitude } = position.coords
@@ -45,8 +49,14 @@ class BuildingShow extends React.Component {
 
 
   render() {
-    const building = this.state.building
     if(!this.state.building) return null
+
+    const images = this.state.building.image
+    const photos = images
+    console.log(photos, 'photos')
+    console.log(this.state, 'state')
+
+    const building = this.state.building
 
     return (
       <section className="section">
@@ -58,7 +68,7 @@ class BuildingShow extends React.Component {
 
             {this.canModify() &&
               <div className="level-right">
-                <Link to={`/buildings/${building._id}/BuildingEdit`} className="button is-warning is-outlined">delete</Link>
+                <Link to={`/buildings/${building.id}/BuildingEdit`} className="button is-warning is-outlined">delete</Link>
                 <button className="button is-danger is-outlined" onClick={this.handleDelete}>Delete</button>
               </div>
             }
@@ -72,10 +82,7 @@ class BuildingShow extends React.Component {
 
           <div className="columns is-multiline">
             <div className="column is-half-desktop is-full-tablet">
-              <figure className="image">
-                <img src={building.image} alt={building.name} />
-              </figure>
-
+              <Slider images={photos}/>
             </div>
 
             <div className="media-content">
@@ -98,10 +105,10 @@ class BuildingShow extends React.Component {
 
             <br />
 
+            <button className="button is-success has-text-grey dir-btn is-outlined is-info"><a href={`https://citymapper.com/directions?startcoord=${this.state.location.lat},${this.state.location.lon}&endcoord=${building.latitude},${building.longitude}`} target="blank">Directions in CityMapper</a></button>
+
             <button className="button is-warning has-text-grey dir-btn is-outlined is-info"><a href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.location.lat},${this.state.location.lon}&destination=${building.latitude},${building.longitude}`} target="blank">Directions in Google Maps</a></button>
             <br />
-
-            <button className="button is-success has-text-grey dir-btn is-outlined is-info"><a href={`https://citymapper.com/directions?startcoord=${this.state.location.lat},${this.state.location.lon}&endcoord=${building.latitude},${building.longitude}`} target="blank">Directions in CityMapper</a></button>
 
           </div>
         </div>
