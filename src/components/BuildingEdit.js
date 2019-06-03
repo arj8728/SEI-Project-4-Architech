@@ -38,6 +38,12 @@ class BuildingEdit extends React.Component {
     this.setState({ data })
   }
 
+  handleUploadedImages(result) {
+    const data = { ...this.state.data, images: result.filesUploaded.map(file => file.url) }
+    this.setState({ data })
+  }
+
+
   handleSubmit(e) {
     e.preventDefault()
 
@@ -80,10 +86,11 @@ class BuildingEdit extends React.Component {
                   <label className="label">Image</label>
                   <ReactFilestack
                     apikey="A0y7LFvTfTXGeE0Xy0f9vz"
-                    buttonText="Upload Photo Cabin"
+                    buttonText="Upload Photo Building"
                     buttonClass="button"
                     options={choices}
                     preload={true}
+                    maxFiles={4}
                     onSuccess={this.handleUploadedImages}
                   />
                   {this.state.data.image && <img src={this.state.data.image} />}

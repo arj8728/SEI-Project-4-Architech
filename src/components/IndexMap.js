@@ -41,7 +41,7 @@ class IndexMap extends React.Component {
 
             {this.props.buildings.map(building =>
               <Marker className="marker"
-                key={building._id}
+                key={building.id}
                 coordinates={[building.longitude, building.latitude]}
                 anchor="bottom"
                 onClick={() => this.handleMarkerClick(building)}
@@ -51,7 +51,7 @@ class IndexMap extends React.Component {
             )}
 
             {this.state.selectedBuilding &&
-              <Link to ={`/buildings/${this.state.selectedBuilding._id}`} key={this.state.selectedBuilding._id}>
+              <Link to ={`/buildings/${this.state.selectedBuilding.id}`} key={this.state.selectedBuilding.id}>
                 <Popup className="popup"
                   coordinates={[this.state.selectedBuilding.longitude, this.state.selectedBuilding.latitude]}
                   offset={{

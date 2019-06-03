@@ -123,7 +123,7 @@ export default BuildingsIndex
 //     :
 //     <div>
 //       {this.state.filteredBuildings && this.state.filteredBuildings.map(
-//         filteredBuilding => <BuildingCard key={filteredBuilding._id} filteredBuilding={filteredBuilding}/>
+//         filteredBuilding => <BuildingCard key={filteredBuilding.id} filteredBuilding={filteredBuilding}/>
 //       )}
 //     </div>
 //   }
