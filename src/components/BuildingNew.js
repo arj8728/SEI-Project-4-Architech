@@ -88,13 +88,11 @@ class BuildingNew extends React.Component {
     return(
       <section className="section">
         <div className="container">
-          <div className="columns is-centered">
+          <div className="columns is-two-thirds">
             <div className="column is-half-desktop is-two-thirds-tablet">
-
-
+              <br />
               <h1 className="title is-3"> Add a new Building</h1>
               <form onSubmit={this.handleSubmit}>
-
                 <div className="field">
                   <label className="label">Name</label>
                   <div className="control">
@@ -138,7 +136,7 @@ class BuildingNew extends React.Component {
                   </div>
                   {this.state.errors.architect && <div className="help is-danger">{this.state.errors.architect}</div>}
                 </div>
-
+                <br />
                 <div className="field">
                   <label className="label">Construction:</label>
                   <div className="select">
@@ -173,7 +171,7 @@ class BuildingNew extends React.Component {
                   {this.state.errors.style_id && <div className="help is-danger">{this.state.errors.style_id}</div>}
                 </div>
 
-
+                <br />
                 <div className="field">
                   <label className="label">Address</label>
                   <div className="control">
@@ -230,7 +228,7 @@ class BuildingNew extends React.Component {
                   </div>
                 </div>
                 {this.state.errors.about && <div className="help is-danger">{this.state.errors.about}</div>}
-
+                <br />
                 <button
                   className="button is-warning is-centered">
                       Add Building
@@ -238,7 +236,13 @@ class BuildingNew extends React.Component {
               </form>
 
             </div>
+            <div className="column">
+              <img className="NewOrnate" src={'../images/OrnateBuilding.jpg'} />
+            </div>
+
+
           </div>
+
         </div>
 
       </section>

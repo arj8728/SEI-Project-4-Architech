@@ -75,6 +75,7 @@ class Login extends React.Component {
               </form>
             </div>
           </div>
+          <img className="loginPic" src="https://cityscapeillustrator.com/wp-content/uploads/2018/01/san-fran.jpg" />
         </div>
       </section>
     )

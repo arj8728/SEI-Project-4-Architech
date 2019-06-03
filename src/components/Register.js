@@ -34,70 +34,74 @@ class Register extends React.Component {
     console.log(this.state)
     return (
       <section className="section">
-        <div className="container">
-          <div className="columns is-centered">
-            <div className="column is-half-desktop is-two-thirds-tablet">
-              <form onSubmit={this.handleSubmit}>
+        <div className="register-page">
 
-                <div className="field">
-                  <label className="label">Username</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      name="username"
-                      placeholder="eg: leela3000"
-                      onChange={this.handleChange}
-                    />
+          <div className="container">
+            <div className="columns is-centered">
+              <div className="column is-half-desktop is-two-thirds-tablet">
+                <form onSubmit={this.handleSubmit}>
+
+                  <div className="field">
+                    <label className="label">Username</label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        name="username"
+                        placeholder="eg: leela3000"
+                        onChange={this.handleChange}
+                      />
+                    </div>
+
+
                   </div>
 
+                  <div className="field">
+                    <label className="label">Email</label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        name="email"
+                        placeholder="eg: leela@planetexpress.nnyc"
+                        onChange={this.handleChange}
+                      />
+                    </div>
 
-                </div>
-
-                <div className="field">
-                  <label className="label">Email</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      name="email"
-                      placeholder="eg: leela@planetexpress.nnyc"
-                      onChange={this.handleChange}
-                    />
                   </div>
 
-                </div>
+                  <div className="field">
+                    <label className="label">Password</label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        name="password"
+                        type="password"
+                        placeholder="eg: ••••••••"
+                        onChange={this.handleChange}
+                      />
+                    </div>
 
-                <div className="field">
-                  <label className="label">Password</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      name="password"
-                      type="password"
-                      placeholder="eg: ••••••••"
-                      onChange={this.handleChange}
-                    />
                   </div>
 
-                </div>
+                  <div className="field">
+                    <label className="label">Password Confirmation</label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        name="password_confirmation"
+                        type="password"
+                        placeholder="eg: ••••••••"
+                        onChange={this.handleChange}
+                      />
+                    </div>
 
-                <div className="field">
-                  <label className="label">Password Confirmation</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      name="password_confirmation"
-                      type="password"
-                      placeholder="eg: ••••••••"
-                      onChange={this.handleChange}
-                    />
                   </div>
 
-                </div>
-
-                <button className="button is-warning">Submit</button>
-              </form>
+                  <button className="button is-warning">Submit</button>
+                </form>
+              </div>
             </div>
           </div>
+          <img className="loginPic" src="http://www.fixationsart.com/wp-content/uploads/2019/04/pin-on-house-with-regard-to-great-40-house-building-drawing.jpg" />
         </div>
       </section>
     )
