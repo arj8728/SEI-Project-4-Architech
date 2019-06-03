@@ -22,14 +22,15 @@ class BuildingNew extends React.Component {
       data: {},
       errors: {},
       styles: [],
-      constructions: []
+      constructions: [],
+      file: null
 
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     // next line creates a bind undefined error
-    // this.handleUploadedImages = this.handleUploadedImages.bind(this)
+    this.handleUploadedImages = this.handleUploadedImages.bind(this)
   }
 
   // for dropdowns
@@ -50,9 +51,7 @@ class BuildingNew extends React.Component {
   // code is rearranged below to allow us to get the postcode and then get the token
   handleSubmit(e) {
     e.preventDefault()
-
     const token = Auth.getToken()
-
     axios.get(`https://api.postcodes.io/postcodes/${this.state.data.postcode}`)
       .then(res => {
         console.log(res.data.result)
@@ -61,8 +60,7 @@ class BuildingNew extends React.Component {
         this.setState({ data: {...this.state.data, longitude, latitude} })
       })
       .then(() => {
-        // for this.state.data we are passing in the long and lat above in this.state
-        // this.state.data has to be in the same format as the model, therefore this.state.data needs to be a series of key value pairs, not the state object with any key value pairs that we've attached atteched it.
+
         return axios.post('/api/buildings', this.state.data, {
           headers: {
             'Content-Type': 'application/json',
@@ -75,7 +73,7 @@ class BuildingNew extends React.Component {
 
   }
 
-  handleUploadImages(result) {
+  handleUploadedImages(result) {
     const data = { ...this.state.data, image: result.filesUploaded[0].url }
     this.setState({ data })
   }
@@ -256,6 +254,9 @@ class BuildingNew extends React.Component {
 
 export default BuildingNew
 
+
+// NB: // for this.state.data we are passing in the long and lat above in this.state
+// this.state.data has to be in the same format as the model, therefore this.state.data needs to be a series of key value pairs, not the state object with any key value pairs that we've attached atteched it.
 
 // axios.get(`https://api.postcodes.io/postcodes/${this.state.data.postcode}`)
 //   .then(res => {

@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom'
 // import axios from 'axios'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
+import 'bulma'
+import './style.scss'
+
 import Navbar from './components/Navbar'
 import FlashMessages from './components/FlashMessages'
 import Home from './components/Home'
@@ -14,11 +17,7 @@ import BuildingNew from './components/BuildingNew'
 import BuildingEdit from './components/BuildingEdit'
 import BuildingShow from './components/BuildingShow'
 import BuildingsIndex from './components/BuildingsIndex'
-//import IndexMap from './components/IndexMap'
 
-
-import 'bulma'
-import './style.scss'
 
 class App extends React.Component {
 
