@@ -31,7 +31,7 @@ class BuildingsIndex extends React.Component {
 
   render() {
     return (
-      <section className="section">
+      <section className="index-page section">
         <div className="container">
           <div className="level-left">
             <button className="button is-danger fas fa-map-marker-alt" onClick={() => this.setView('map')}>Map view</button>

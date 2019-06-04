@@ -32,7 +32,7 @@ class IndexMap extends React.Component {
           <Map
             style='mapbox://styles/mapbox/streets-v9'
             center={[-0.07251, 51.51538]}
-            zoom={[8]}
+            zoom={[10.7]}
             containerStyle={{
               height: '80vh',
               width: '80vw'
@@ -59,7 +59,7 @@ class IndexMap extends React.Component {
                   }}>
 
                   <div>
-                    <h3>{this.state.selectedBuilding.name}</h3>
+                    <h3 className="poptitle">{this.state.selectedBuilding.name}</h3>
                     <img className="popupimage"src={this.state.selectedBuilding.images} alt={this.state.selectedBuilding.name}/>
                   </div>
                 </Popup>

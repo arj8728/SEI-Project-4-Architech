@@ -13,7 +13,7 @@ const BuildingCard = ({ name, images, architect }) => {
       </div>
       <div className="card-content">
         <div className="content">
-          <p>Architect: {architect}</p>
+          <p className="bottomcard">Architect: {architect}</p>
         </div>
       </div>
 

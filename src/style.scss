@@ -2,7 +2,7 @@
 // *** HomePage *** //
 
 .hometitle1{
-  font-size: 72px;
+  font-size: 80px;
   color: #FFFFFF;
   text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF6347 0px 0px 20px, #FF6347 0px 0px 30px, #FF4500	 0px 0px 40px, #FF4500	 0px 0px 50px, #FF4500	 0px 0px 75px;
   color: #FFFFFF;
@@ -16,12 +16,30 @@
     background-size: cover;
     background-position: center;
     height: 92.9vh;
+
   .welcome {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 20px;
-    color: rgba(0, 0, 0, 0.9);
+    color: rgba(1, 1, 1, 0.9);
     width: 500px;
+    padding: 15px 15px 10px 15px;
+    font-family: 'Chakra Petch', sans-serif;
+    font-style: oblique;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: justify;
+
 }
+div.card.panel.welcome {
+  margin-left: 100px;
+}
+    h5 {
+      font-weight: bold;
+      font-size: 23px;
+      text-transform: capitalize;
+      font-family: 'Lato', sans-serif;
+}
+
 
     a.reg-now-butt {
       font: yellow;
@@ -55,6 +73,14 @@
 // *** HomePage End *** //
 
 // *** BuildingsIndex Page *** //
+
+.index-page {
+  background-image: url('http://www.scalsys.com/printable/printable-graph-paper-full-page/printable-graph-paper-full-page_6070.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+
 .card {
       height: 100%;
       position: relative;
@@ -67,13 +93,19 @@
       border-radius: 10px;
     }
 .topcard {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Chakra Petch', sans-serif;
   font-size: 20px;
 }
+  .bottomcard {
+  font-family: 'Chakra Petch', sans-serif;
+  }
 
 .input {
     box-shadow: -7px 0px 25px -10px rgba(0,0,0,0.5);
 
+}
+.button {
+  box-shadow: -7px 0px 15px -5px rgba(0,0,0,0.5);
 }
 
 // *** End BuildingsIndex *** //
@@ -86,12 +118,12 @@
 
 //**** Navbar Home **** //
 ///////////////////////////////////////////////////////////
-#background-change {
-background-position: center;
-background-size: cover;
-background-image: contain;
-transition: background-image 2s ease;
-}
+// #background-change {
+// background-position: center;
+// background-size: cover;
+// background-image: contain;
+// transition: background-image 2s ease;
+// }
 // .navbar {
 //     display: flex;
 // }
@@ -118,11 +150,29 @@ nav.navbar {
 //**** END Navbar Home  **** //
 
 //**** Googlemaps Style **** //
-.popupimage{
- width: 30px;
+
+.popup {
+  border-radius: 25px;
+
+}
+
+.popupimage {
+  height: 200px;
+  width: 200px;
+  border-radius: 17px;
+  padding: 10px;
+}
+  .mapboxgl-popup-content {
+  border-radius: 20px;
+}
+
+.poptitle {
+  font-size: 20px;
+  font-family: 'Chakra Petch', sans-serif;
 }
 
 .marker{
- width: 30px;
+ width: 50px;
+ height: 50px;
 }
 //**** End Googlemaps Style **** //
