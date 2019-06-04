@@ -121,7 +121,7 @@ with db_session():
     construction=pre_cast,
     built=1976,
     about='The Barbican Estate is a residential estate that was built during the 1960s and the 1980s within the City of London in Central London, in an area once devastated by World War II bombings and today densely populated by financial institutions. It contains, or is adjacent to, the Barbican Arts Centre, the Museum of London, the Guildhall School of Music and Drama, the Barbican public library, the City of London School for Girls and a YMCA (now closed), forming the Barbican Complex. The Barbican Complex is a prominent example of British brutalist architecture and is Grade II listed as a whole with the exception of the former Milton Court. Milton Court, which once contained a fire station, medical facilities, and some flats, was demolished to allow the construction of a new apartment tower named The Heron, which also contains additional facilities for the Guildhall School of Music and Drama. </br> The residential estate consists of three tower blocks, 13 terrace blocks, two mews and The Postern, Wallside and Milton Court. </br> The estate contains three of London\'s tallest residential towers, at 42 storeys and 123 metres (404 ft) high. The top two or three floors of each block comprise three penthouse flats.',
-    images=['https://images.unsplash.com/photo-1548324215-f179404ae9ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60', 'http://pic.triposo.com/ios/cas/medium/75e1/75e13334b27d3e39a4d5c48113d956fc1978b50e51437f401939113fd2397f1a', 'http://www.barbicanliving.co.uk/wp-content/uploads/2015/09/P1000520.jpg', 'https://i.pinimg.com/564x/95/e8/5a/95e85ae23cdbb98b896eb6f4105ad3ea.jpg', 'https://i.pinimg.com/564x/bb/6d/e7/bb6de76fe448de5e884b77aa5ecd7470.jpg'],
+    images=['http://pic.triposo.com/ios/cas/medium/75e1/75e13334b27d3e39a4d5c48113d956fc1978b50e51437f401939113fd2397f1a', 'http://www.barbicanliving.co.uk/wp-content/uploads/2015/09/P1000520.jpg', 'https://i.pinimg.com/564x/95/e8/5a/95e85ae23cdbb98b896eb6f4105ad3ea.jpg', 'https://i.pinimg.com/564x/bb/6d/e7/bb6de76fe448de5e884b77aa5ecd7470.jpg'],
     user=char
     )
 
@@ -142,7 +142,7 @@ with db_session():
 
     Building(
     name='The Hoover Building',
-    images=['https://media.architecturaldigest.com/photos/584f2b59001c874267ed3a73/master/w_1200%2Cc_limit/art-deco-london-07.jpg', 'https://upload.wikimedia.org/wikipedia/commons/9/91/The_Hoover_Building%2C_Perivale%2C_London_-_geograph.org.uk_-_1208842.jpg', 'https://i.pinimg.com/originals/d7/0e/fe/d70efe4756a292980e61b6364d1bd622.jpg', 'https://www.hughesandsalvidge.co.uk/wp-content/uploads/2014/02/hoover-.png', 'https://i.pinimg.com/564x/48/4c/4b/484c4bcceaf2f268da52e5d5fd7d767d.jpg'],
+    images=['https://upload.wikimedia.org/wikipedia/commons/9/91/The_Hoover_Building%2C_Perivale%2C_London_-_geograph.org.uk_-_1208842.jpg', 'https://i.pinimg.com/originals/d7/0e/fe/d70efe4756a292980e61b6364d1bd622.jpg', 'https://www.hughesandsalvidge.co.uk/wp-content/uploads/2014/02/hoover-.png', 'https://i.pinimg.com/564x/48/4c/4b/484c4bcceaf2f268da52e5d5fd7d767d.jpg'],
     architect='Wallis, Gilbert and Partners',
     style=art_deco,
     address='Western Avenue, Perivale',

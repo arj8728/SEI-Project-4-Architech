@@ -66,18 +66,17 @@ class BuildingShow extends React.Component {
               <h1 className="title is-1">{building.name}</h1>
             </div>
 
-            {this.canModify() &&
-              <div className="level-right">
-                <Link to={`/buildings/${building.id}/Edit`} className="button is-warning is-outlined">Edit</Link>
-                <button className="button is-danger is-outlined" onClick={this.handleDelete}>Delete</button>
-              </div>
-            }
 
           </div>
           <div className="media-content">
             <div className="content">
               <h2 className="title is-5"> {building.address}</h2>
             </div>
+
+            <button className="google button is-warning has-text-grey dir-btn is-outlined is-info"><a href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.location.lat},${this.state.location.lon}&destination=${building.latitude},${building.longitude}`} target="blank">Directions in Google Maps</a></button>
+
+            <button className="city button is-success has-text-grey dir-btn is-outlined is-info"><a href={`https://citymapper.com/directions?startcoord=${this.state.location.lat},${this.state.location.lon}&endcoord=${building.latitude},${building.longitude}`} target="blank">Directions in CityMapper</a></button>
+
           </div>
           <hr />
 
@@ -86,11 +85,7 @@ class BuildingShow extends React.Component {
               <Slider images={photos}/>
             </div>
 
-            <div className="media-content">
-              <div className="content">
-                <h2 className="title is-4">Architect: {building.architect}</h2>
-              </div>
-            </div>
+
             <div className="media-content">
               <div className="content">
                 <h2 className="title is-4">Architectural Style: {building.style.name}</h2>
@@ -103,14 +98,12 @@ class BuildingShow extends React.Component {
               </div>
             </div>
 
-
-            <br />
-
-            <button className="button is-warning has-text-grey dir-btn is-outlined is-info"><a href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.location.lat},${this.state.location.lon}&destination=${building.latitude},${building.longitude}`} target="blank">Directions in Google Maps</a></button>
-
-            <br />
-
-            <button className="button is-success has-text-grey dir-btn is-outlined is-info"><a href={`https://citymapper.com/directions?startcoord=${this.state.location.lat},${this.state.location.lon}&endcoord=${building.latitude},${building.longitude}`} target="blank">Directions in CityMapper</a></button>
+            {this.canModify() &&
+              <div className="level-right">
+                <Link to={`/buildings/${building.id}/Edit`} className="button is-warning is-outlined">Edit</Link>
+                <button className="button is-danger is-outlined" onClick={this.handleDelete}>Delete</button>
+              </div>
+            }
 
           </div>
         </div>

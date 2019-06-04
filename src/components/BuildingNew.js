@@ -140,7 +140,7 @@ class BuildingNew extends React.Component {
                 <div className="field">
                   <label className="label">Construction:</label>
                   <div className="select">
-                    <select name="construction_id" defaultValue="Choose a construction..." onChange={this.handleChange}>
+                    <select name="construction.id" defaultValue="Choose a construction..." onChange={this.handleChange}>
                       <option disabled>Choose a construction...</option>
                       {this.sortedConstructions().map(construction =>
                         <option
@@ -151,13 +151,13 @@ class BuildingNew extends React.Component {
                       )}
                     </select>
                   </div>
-                  {this.state.errors.construction_id && <div className="help is-danger">{this.state.errors.construction_id}</div>}
+                  {this.state.errors.construction.id && <div className="help is-danger">{this.state.errors.construction.id}</div>}
                 </div>
 
                 <div className="field">
                   <label className="label">Architectural Style:</label>
                   <div className="select">
-                    <select name="style_id" defaultValue="Choose an architectural style..." onChange={this.handleChange} >
+                    <select name="style.id" defaultValue="Choose an architectural style..." onChange={this.handleChange} >
                       <option disabled>Choose an architectural style...</option>
                       {this.sortedStyles().map(style =>
                         <option
@@ -168,7 +168,7 @@ class BuildingNew extends React.Component {
                       )}
                     </select>
                   </div>
-                  {this.state.errors.style_id && <div className="help is-danger">{this.state.errors.style_id}</div>}
+                  {this.state.errors.style.id && <div className="help is-danger">{this.state.errors.style.id}</div>}
                 </div>
 
                 <br />
