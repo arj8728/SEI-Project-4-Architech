@@ -65,8 +65,6 @@ class BuildingShow extends React.Component {
             <div className="level-left">
               <h1 className="title is-1">{building.name}</h1>
             </div>
-
-
           </div>
           <div className="media-content">
             <div className="content">
@@ -79,20 +77,25 @@ class BuildingShow extends React.Component {
 
           </div>
           <hr />
+          <div className="columns">
 
-          <div className="columns is-multiline">
-            <div className="column is-half-desktop is-full-tablet">
-              <Slider images={photos}/>
+            <div className="left-column">
+              <div className="columns is-multiline">
+                <div className="column is-half-desktop is-full-tablet">
+                  <Slider images={photos}/>
+                </div>
+              </div>
+
+
             </div>
 
 
-            <div className="media-content">
-              <div className="content">
+            <div className="show media-content">
+              <div className="content ">
+                <h2 className="title is-4">Architect: {building.architect}</h2>
                 <h2 className="title is-4">Architectural Style: {building.style.name}</h2>
               </div>
-            </div>
 
-            <div className="media-content">
               <div className="content">
                 <p className="title is-6"> {building.about}</p>
               </div>

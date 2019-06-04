@@ -61,6 +61,9 @@ with db_session():
     medieval = Style(name='Medieval')
     art_nouveau = Style(name='Art Nouveau')
     classical = Style(name='Classical')
+    early_georgian = Style(name='Early Georgian')
+    gothic = Style(name='Gothic')
+    neo_futurism = Style(name='Neo Futurism')
 
 
     Building(
@@ -244,5 +247,65 @@ with db_session():
     built=1850,
     about='Former Victorian warsehouse converted to a Samuel Smith\'s pub in 1990. The yard to its east (now a beer garden) was the site for the public execution of pirates, usually by hanging. On 23 May 1701, the Scottish sailor William Kidd was hanged for piracy on that very spot. An engraving of the grizzly event still exists and it is easy to establish that this was the spot because, in the distance, is Rotherhithe’s church. The site was known as Execution Dock. The name ‘Captain Kidd’ was an obvious choice for the hostelry.',
     user=char
+    )
+    Building(
+    name='The Geffyre Museum',
+    images=['https://media.timeout.com/images/101632879/630/472/image.jpg', 'https://letsgowiththechildren.co.uk/wp-content/uploads/2016/12/The-Geffrye-Museum-of-the-Home-915px.jpg', 'https://www.geffrye-museum.org.uk/thumbnailgenerator.ashx?id=3970&width=932&height=2000&method=Limit&background=0&corners=0&cornerradius=0&type=Png&quality=80&h=E66A481EB4BB8B9563AF5FD42F3F9FA0&units=Pixel', 'https://www.geffrye-museum.org.uk/thumbnailgenerator.ashx?id=36805&width=932&height=2000&method=Limit&background=0&corners=0&cornerradius=0&type=Png&quality=80&h=75A3D579111C16E1A54F6FCC78FFE7&units=Pixel', 'https://images.squaremeal.co.uk/cloud/restaurants/10868/geffrye-museum-cafe-jan-2016-2.jpg?w=900&h=600&fit=crop'],
+    architect='Unknown',
+    style=early_georgian,
+    address='136 Kingsland Rd, London',
+    latitude=51.53155,
+    longitude=-0.07627,
+    postcode='E2 8EA',
+    construction=brick,
+    built=1714,
+    about='The Geffrye Museum opened in 1914. The London County Council had been persuaded by leading members of the Arts and Crafts movement to convert the 18th century buildings into a museum related to the local furniture industry. Its purpose was to provide a reference collection of furniture of a \'fine standard of technical and artistic excellence\' to educate and inspire the local workforce. Its initial collections of furniture and panelled rooms have been added to over the years and now are complemented by decorative art, paintings, personalia and archives relating to English domestic interiors. Since becoming an independent charitable trust in 1991, we have embarked on an ambitious programme of developments, including refurbishing all of the period rooms and building a major new extension, which opened in November 1998',
+    user=char
+    )
+
+    Building(
+    name='The London Buddhist Centre',
+    images=['https://i.pinimg.com/564x/bc/4c/2c/bc4c2cc2255ce5648736684449ace36d.jpg', 'https://s0.geograph.org.uk/geophotos/05/00/01/5000148_5749412d.jpg', 'https://thebuddhistcentre.com/sites/default/files/styles/large/public/groups/images/LBC_0.jpg?itok=UdhIglND', 'https://i.pinimg.com/564x/fa/99/e5/fa99e5996a714287d2757cf07ef85c11.jpg', 'https://pch-a.com/wp-content/uploads/2-London-Buddhist-Centre71.jpg'],
+    architect='unknown',
+    style=victorian,
+    address='51 Roman Rd, Bethnal Green, London',
+    latitude=51.52789,
+    longitude=-0.05207,
+    postcode='E2 0HU',
+    construction=brick,
+    built=1888,
+    about='The Grade II listed former fire station has been subject to complete refurbishment in recent years. This is the culmination of over a £1 million extension and refurbishment of their site. The challenge of this listed building was met in 8 phases of work in an occupied building. The work consisted of the conversion of the upper floors to house the 10 fold community of residents, a new reception area and a third shrine room with associated support spaces.',
+    user=char
+    )
+
+    Building(
+    name='St Pancras',
+    images=['https://www.cbreresidential.com/uk/sites/uk-residential/files/styles/image_style_mobile/public/Students%20-%20King%27s%20Cross%20HERO.jpg', 'https://www.jcms-journal.com/articles/10.5334/jcms.1021205/figures/Fig01_web.jpg', 'https://i0.wp.com/b-c-ing-u.com/wp/wp-content/uploads/2014/01/stpancras08.jpg?fit=640%2C480&w=640', 'https://memoirsofametrogirl.files.wordpress.com/2018/06/st-pancras-emin.jpg?w=640', 'http://gallery.nen.gov.uk/assets/1304/0000/0045/img_1351_mid.jpg'],
+    architect='George Gilbert Scott,',
+    style=gothic,
+    address='Euston Rd, Kings Cross, London',
+    latitude=51.52789,
+    longitude=-0.05207,
+    postcode='N1C 4QP',
+    construction=brick,
+    built=1868,
+    about='St Pancras Station was opened in 1868 and is one of the wonders of Victorian engineering. Along with the former Midland Grand Hotel, it is a masterpiece of Victorian Gothic Architecture and one of the most elegant stations in the World. It has recently been refurbished to accommodate international train services; its history is a remarkable tale of decay, restoration and spectacular rebirth. In these history pages you can find out why the Victorians chose this design for the station and how they built it. You can also learn about how the station was restored and transformed to become the new arrival point for Eurostar services, and how the surrounding area has become one of London’s newest destinations. The train station design is a unique response to its geographic context but also reflects thinking of the day in respect of station design and operation; the platform deck was raised up on a grid of 688 cast-iron columns in order to allow steam engines to pass over the Regent’s canal just to the north. The space underneath, now called the Arcade, was designed and used to store beer produced by Burton Brewers, notably Bass and Thomas Salt.',
+    user=char
         )
+
+    Building(
+    name='London City Hall',
+    images=['https://i.pinimg.com/564x/f2/60/79/f26079dc7c212b5a8fbac82c4cefc545.jpg', 'https://i.pinimg.com/564x/df/41/0a/df410a1e73c3f4ffb4bc850fbe323afd.jpg', 'https://i.pinimg.com/564x/57/6e/38/576e38a3ebe9585305e4cb18ffffd590.jpg'],
+    architect='George Gilbert Scott,',
+    style=neo_futurism,
+    address='Euston Rd, Kings Cross, London',
+    latitude=51.50485,
+    longitude=-0.07869,
+    postcode='SE1 2AA',
+    construction=steel_frame,
+    built=2002,
+    about='The building has an unusual, bulbous shape, purportedly intended to reduce its surface area and thus improve energy efficiency, although the excess energy consumption caused by the exclusive use of glass (in a double facade) overwhelms the benefit of shape. Despite claiming the building "demonstrates the potential for a sustainable, virtually non-polluting public building",[ energy use measurements have shown this building to be fairly inefficient in terms of energy use (375 kWh/m2/yr), with a 2012 Display Energy Performance Certificate rating of "E". Its designers reportedly saw it as a giant sphere hanging over the Thames, but opted for a more conventionally rooted building instead. It has no front or back in conventional terms but derives its shape from a modified sphere. A 500-metre (1,640 ft) helical walkway ascends the full ten stories. At the top is an exhibition and meeting space called "London\'s Living Room", with an open viewing deck which is occasionally open to the public. The walkway provides views of the interior of the building, and is intended to symbolise transparency; a similar device was used by Foster in his design for the rebuilt Reichstag (parliament), when Germany\'s capital was moved back to Berlin. The council chamber is located at the bottom of the helical stairway. The seats and desks for Assembly Members are arranged in a circular form (like the Round Table) with no clearly defined "head", podium, or chair where a speaker, council chairperson, or mayor might be seated. Raised tiers of seats for visitors or observers are located to one side.',
+    user=arj
+    )
+
     db.commit()

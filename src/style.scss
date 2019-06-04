@@ -17,14 +17,31 @@
     background-position: center;
     height: 92.9vh;
 
+    .welcome-to-architect {
+      text-align: center;
+      font-style: normal;
+    }
+
+    .register-buttons {
+      text-align: center;
+
+    }
+    .regnowbutt {
+      margin-bottom: 10px;
+    }
+
+    .already-registered {
+      text-align: center;
+    }
+
   .welcome {
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 20px;
     color: rgba(1, 1, 1, 0.9);
-    width: 500px;
+    width: 650px;
     padding: 15px 15px 10px 15px;
     font-family: 'Chakra Petch', sans-serif;
-    font-style: oblique;
+    // font-style: oblique;
     font-weight: bold;
     font-size: 18px;
     text-align: justify;
@@ -35,9 +52,12 @@ div.card.panel.welcome {
 }
     h5 {
       font-weight: bold;
-      font-size: 23px;
+      font-size: 26px;
       text-transform: capitalize;
       font-family: 'Lato', sans-serif;
+      text-shadow: #AAA 0px 0px 5px, #AAA 0px 0px 10px, #AAA 0px 0px 15px, #FF6347 0px 0px 20px, #FF6347 0px 0px 30px, #FF4500	 0px 0px 40px, #FF4500	 0px 0px 50px, #FF4500	 0px 0px 75px;
+      color: #FFFFFF;
+
 }
 
 
@@ -182,3 +202,5 @@ nav.navbar {
 .google {
   margin-right: 15px;
 }
+
+//**** SHOW ****

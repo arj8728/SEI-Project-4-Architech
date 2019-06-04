@@ -20,17 +20,21 @@ const Home = () => {
         <br />
         <div className="text container">
           <h1 className="title hometitle1">Architech</h1>
-
           <br />
           <div className="card-panel welcome">
-            <h5 className="intro-logo">Welcome to Architech</h5>
+            <div className="welcome-to-architect">
+              <h5 className="intro-logo">Welcome to Architech</h5>
+            </div>
+            <br />
             <h6>A site for lovers of architecture. Join a community of like-minded enthusiasts and professionals. Architech is not just a site for the biggest and most famous buildings. Purvey the unique, undiscovered finds of  fellow Architechs by viewing their uploads, and sharing your own.</h6>
             <br />
-            <Link to='/register' className="reg-now-butt tab button is-warning has-text-grey">  Register Now  </Link>
+            <div className="register-buttons">
+              <Link to='/register' className="regnowbutt tab button is-warning has-text-grey">  Register Now  </Link>
+              <br />
+              <Link to='/buildings' className="reglaterbutt tab button is-warning has-text-grey">Register Later</Link>
+            </div>
             <br />
-            <Link to='/buildings' className="reg-later-butt tab button is-warning has-text-grey">Register Later</Link>
-            <br />
-            <div>
+            <div className="already-registered">
               <span>
                Already registered?
                 <Link to="/login">&nbsp;Login here.</Link>
