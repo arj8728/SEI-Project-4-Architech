@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Auth from '../lib/Auth'
 import Slider from './Slider'
@@ -86,7 +86,6 @@ class BuildingShow extends React.Component {
                 </div>
               </div>
 
-
             </div>
 
 
@@ -103,7 +102,8 @@ class BuildingShow extends React.Component {
 
             {this.canModify() &&
               <div className="level-right">
-                <Link to={`/buildings/${building.id}/Edit`} className="button is-warning is-outlined">Edit</Link>
+
+
                 <button className="button is-danger is-outlined" onClick={this.handleDelete}>Delete</button>
               </div>
             }
@@ -117,6 +117,7 @@ class BuildingShow extends React.Component {
 export default BuildingShow
 
 
+// <Link to={`/buildings/${building.id}/Edit`} className="button is-warning is-outlined">Edit</Link>
 
 // in line 85   <BuildingMap date={state} />  from before we removed the buildingMap component
 
