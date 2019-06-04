@@ -75,7 +75,7 @@ with db_session():
     construction=rcf,
     built=1978,
     about='Lloyds of London is the world’s greatest insurance market. It had moved its dealing room twice in 50 years and wanted a building that would provide for its needs well into the 21st century. It was also imperative that Lloyd’s could continue their operations unhindered during the rebuilding operation, which almost inevitably involved the demolition of the existing 1928 building. The competition for a new building was won on the basis not of an architectural proposal but of a strategy for the future of this key City institution. Richard Rogers Partnership (RRP) proposed a building where the dealing room could expand or contract, according to the needs of the market, by means of a series of galleries around a central space. To maximise space, services are banished to the perimeter. As the architectural form of the building evolved, particular attention was paid to its impact on the surrounding area, especially on the listed 19th century Leadenhall Market. As a result, Lloyd’s became a complex grouping of towers, almost Gothic in feeling – an effect enhanced by the height of the external plant-room towers. Lloyd’s is one of the great architectural achievements of the 1980s, one of the buildings which confirmed the practice’s position in the front rank of international architects. It has emerged as one of the greatest modern British buildings, one which balances technical efficiency with architectural expressiveness to produce an effect which might be called highly romantic and judged a very positive addition to the London skyline. The building was Grade I listed in 2011, the youngest structure to obtain this status. English Heritage described it as “universally recognized as one of the key buildings of the modern epoch.',
-    images=['https://upload.wikimedia.org/wikipedia/commons/3/34/Lloyd%27s_building_from_Leadenhall_Street.jpg', 'http://www.bbc.co.uk/staticarchive/e8eea2b72d54aa09dfb5cfb4bf882e7c78059ed7.jpg'],
+    images=['https://tokyofox.files.wordpress.com/2015/01/dscn0270.jpg', 'http://spinlister-blog.s3.amazonaws.com/2016/04/Modern-Architecture-London-2.jpg', 'http://www.bbc.co.uk/staticarchive/e8eea2b72d54aa09dfb5cfb4bf882e7c78059ed7.jpg', 'https://i.pinimg.com/564x/30/fa/87/30fa87305c142afbe0b9e5fe372cc672.jpg'],
     user=char
     )
 
@@ -91,7 +91,7 @@ with db_session():
     construction=portland_stone,
     built=1852,
     about='The core of today’s building was designed by the architect Sir Robert Smirke (1780–1867) in 1823. It was a quadrangle with four wings: the north, east, south and west wings. The building was completed in 1852. It included galleries for classical sculpture and Assyrian antiquities as well as residences for staff. Smirke designed the building in the Greek Revival style, which emulated classical Greek architecture. Greek features on the building include the columns and pediment at the South entrance. This style had become increasingly popular since the 1750s when Greece and its ancient sites were ‘rediscovered’ by western Europeans. The building was constructed using up-to-the-minute 1820s technology. Built on a concrete floor, the frame of the building was made from cast iron and filled in with London stock brick. The public facing sections of the building were covered in a layer of Portland stone. In 1853, the quadrangle building won the Royal Institute of British Architects’ Gold Medal.',
-    images=['https://upload.wikimedia.org/wikipedia/commons/3/3a/British_Museum_from_NE_2.JPG'],
+    images=['https://i.pinimg.com/564x/d8/2c/31/d82c318409474007daf4b76b012628ba.jpg', 'https://upload.wikimedia.org/wikipedia/commons/3/3a/British_Museum_from_NE_2.JPG', 'https://c1.staticflickr.com/1/96/214966284_120633c9ef_z.jpg?zz=1', 'https://i.pinimg.com/564x/fd/ce/bb/fdcebb9f00b6cbc32bcbe64d552f06f8.jpg'],
     user=arj
     )
 
@@ -106,7 +106,7 @@ with db_session():
     construction=rcf,
     built=2011,
     about='On 12 July 2007, the Olympic Delivery Authority selected the design team: Hopkins Architects, Expedition Engineering, BDSP, and Grant Associates, following an architectural design competition managed by RIBA Competitions. The Velopark was scheduled to be completed by the contractor, ISG, in 2011. In 2004, during London\'s Olympic and Paralympic bid, the estimated cost was £37 million, including £20 million for the velodrome. </br> In 2009, at the time work began on the construction of the velodrome, the estimated cost of that facility alone was £105 million. Work on the velodrome was completed in February 2011, and was the first Olympic Park venue to be completed. The roof is designed to reflect the geometry of cycling as well as being lightweight and efficient reflecting a bike. There is also a 360-degree concourse level with windows allowing people views of the Olympic Park. The velodrome is energy efficient—rooflights reduce the need for artificial lights, and natural ventilation reduces the need for air condition. Rain water is also collected, which reduces the amount of water used from the municipal water system. Designer Ron Webb, who designed the velodrome tracks for the Sydney and Athens Games, was in charge of the design and installation of the track. The 250-metre track was made with 56 km (35 miles) of Siberian Pine and 350,000 nails.',
-    images=['https://images.unsplash.com/photo-1524772653050-7c42f97c43ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1033&q=80'],
+    images=['https://images.unsplash.com/photo-1524772653050-7c42f97c43ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1033&q=80', 'https://cdn.londonandpartners.com/asset/lee-valley-velopark-velopark-777863150d38447a491533c459931086.jpg', 'https://q7a5d3d2.stackpathcdn.com/wp-content/uploads/2014/05/lee-valley-velopark-2.jpg', 'https://i.pinimg.com/564x/3a/1a/ed/3a1aedc48258f7b9f1c84351b3977fef.jpg', 'https://i.pinimg.com/564x/df/28/84/df2884fec89315b6d6274be933fb215d.jpg'],
     user=char
     )
 
@@ -121,13 +121,13 @@ with db_session():
     construction=pre_cast,
     built=1976,
     about='The Barbican Estate is a residential estate that was built during the 1960s and the 1980s within the City of London in Central London, in an area once devastated by World War II bombings and today densely populated by financial institutions. It contains, or is adjacent to, the Barbican Arts Centre, the Museum of London, the Guildhall School of Music and Drama, the Barbican public library, the City of London School for Girls and a YMCA (now closed), forming the Barbican Complex. The Barbican Complex is a prominent example of British brutalist architecture and is Grade II listed as a whole with the exception of the former Milton Court. Milton Court, which once contained a fire station, medical facilities, and some flats, was demolished to allow the construction of a new apartment tower named The Heron, which also contains additional facilities for the Guildhall School of Music and Drama. </br> The residential estate consists of three tower blocks, 13 terrace blocks, two mews and The Postern, Wallside and Milton Court. </br> The estate contains three of London\'s tallest residential towers, at 42 storeys and 123 metres (404 ft) high. The top two or three floors of each block comprise three penthouse flats.',
-    images=['https://images.unsplash.com/photo-1548324215-f179404ae9ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'],
+    images=['https://images.unsplash.com/photo-1548324215-f179404ae9ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60', 'http://pic.triposo.com/ios/cas/medium/75e1/75e13334b27d3e39a4d5c48113d956fc1978b50e51437f401939113fd2397f1a', 'http://www.barbicanliving.co.uk/wp-content/uploads/2015/09/P1000520.jpg', 'https://i.pinimg.com/564x/95/e8/5a/95e85ae23cdbb98b896eb6f4105ad3ea.jpg', 'https://i.pinimg.com/564x/bb/6d/e7/bb6de76fe448de5e884b77aa5ecd7470.jpg'],
     user=char
     )
 
     Building(
     name='Florin Court',
-    images=['https://lid.zoocdn.com/645/430/8e656a8f1e9d07e4a0dfc93b36ef047577772e19.jpg'],
+    images=['https://lid.zoocdn.com/645/430/8e656a8f1e9d07e4a0dfc93b36ef047577772e19.jpg', 'https://i.pinimg.com/564x/87/0a/b5/870ab56511f17b7608786c3ca6906fbf.jpg', 'https://i.pinimg.com/564x/d1/fe/87/d1fe872bc542fe0b13df11204cab7458.jpg', 'https://i.pinimg.com/564x/d8/96/04/d89604b5b37504cc8161ad0373af0c42.jpg'],
     architect='Guy Morgan and Partners',
     style=art_deco,
     address='6-9 Charterhouse Square',
@@ -142,7 +142,7 @@ with db_session():
 
     Building(
     name='The Hoover Building',
-    images=['https://media.architecturaldigest.com/photos/584f2b59001c874267ed3a73/master/w_1200%2Cc_limit/art-deco-london-07.jpg'],
+    images=['https://media.architecturaldigest.com/photos/584f2b59001c874267ed3a73/master/w_1200%2Cc_limit/art-deco-london-07.jpg', 'https://upload.wikimedia.org/wikipedia/commons/9/91/The_Hoover_Building%2C_Perivale%2C_London_-_geograph.org.uk_-_1208842.jpg', 'https://i.pinimg.com/originals/d7/0e/fe/d70efe4756a292980e61b6364d1bd622.jpg', 'https://www.hughesandsalvidge.co.uk/wp-content/uploads/2014/02/hoover-.png', 'https://i.pinimg.com/564x/48/4c/4b/484c4bcceaf2f268da52e5d5fd7d767d.jpg'],
     architect='Wallis, Gilbert and Partners',
     style=art_deco,
     address='Western Avenue, Perivale',
@@ -157,7 +157,7 @@ with db_session():
 
     Building(
     name='SIS Building',
-    images=['https://nineelmslondon.com/wp-content/uploads/2017/09/MI6-1024x600.jpg'],
+    images=['https://i.pinimg.com/564x/4f/86/69/4f86692102a32849dcf502d6fe7d47aa.jpg', 'https://nineelmslondon.com/wp-content/uploads/2017/09/MI6-1024x600.jpg', 'https://i.pinimg.com/564x/68/ea/f2/68eaf26f198174a0da8053c185db1e31.jpg', 'https://i.pinimg.com/564x/f1/38/fc/f138fc42648404f689d23338776e0203.jpg', 'https://i.pinimg.com/564x/39/43/ba/3943ba3a355c1eb728d8b97cda1da8f8.jpg', 'https://i.pinimg.com/564x/28/83/f0/2883f08cb5241a9d9eed7540c5dd32b9.jpg'],
     architect='Terry Farrell and Partners',
     style=modernist,
     address='85 Albert Embankment, London',
@@ -173,7 +173,7 @@ with db_session():
 
     Building(
     name='Jewel Tower',
-    images=['https://media.timeout.com/images/103503699/750/562/image.jpg'],
+    images=['http://vipauk.org/enter/muse/lond/img/j01a.jpg', 'https://media.timeout.com/images/103503699/750/562/image.jpg', 'https://www.english-heritage.org.uk/siteassets/home/visit/places-to-visit/jewel-tower/history/view-from-the-west.jpg', 'https://www.britainexpress.com/images/attractions/editor3/Jewel-Tower-2806.jpg', 'https://www.britainexpress.com/images/attractions/editor3/Jewel-Tower-2812.jpg'],
     architect='Henry Yevele',
     style=medieval,
     address='Abingdon St, Westminster, London',
@@ -188,7 +188,7 @@ with db_session():
 
     Building(
     name='The Blackfriar Pub',
-    images=['https://media.timeout.com/images/103503677/1024/768/image.jpg'],
+    images=['https://i.pinimg.com/564x/10/66/8a/10668ad456473a08c7db7c034feb2027.jpg', 'https://i.pinimg.com/564x/ed/88/95/ed8895814b0c94bcc3e63b2fbdb968e1.jpg', 'https://i.pinimg.com/564x/bb/0a/83/bb0a83474bc3acb7b7ae4de227492132.jpg', 'https://i.pinimg.com/564x/e7/ff/68/e7ff6816eb6198cd1d01d1deff0fc3e0.jpg', 'https://media.timeout.com/images/103503677/1024/768/image.jpg'],
     architect='H. Fuller-Clark',
     style=art_nouveau,
     address='174 Queen Victoria Street',
@@ -203,7 +203,7 @@ with db_session():
 
     Building(
     name='The Queen\'s House',
-    images=['https://media.timeout.com/images/103503727/1024/768/image.jpg'],
+    images=['https://static1.squarespace.com/static/56b865ce7c65e435b9beb85d/56d57bec8259b57a20251c89/56d57c0422482e42c20fedd8/1457346772789/SLATECH_0013_Layer+6.jpg', 'https://i.pinimg.com/564x/08/38/0d/08380d958b7911f1ac60e867f4b1f935.jpg', 'https://i.pinimg.com/564x/e7/c6/b0/e7c6b0445548dc0a521b74913513e324.jpg', 'https://i.pinimg.com/564x/3c/4e/1d/3c4e1d6cc7fa570fd15783bc0d136098.jpg', 'https://i.pinimg.com/564x/9e/15/ea/9e15eaa9770666dc9993a081b36b9080.jpg', 'https://media.timeout.com/images/103503727/1024/768/image.jpg'],
     architect='Inigo Jones',
     style=classical,
     address='Park Row, Greenwich',
@@ -218,7 +218,7 @@ with db_session():
 
     Building(
     name='New River Head',
-    images=['https://assets.themodernhouse.com/wp-content/uploads/tmh/7940/26-11.jpg'],
+    images=['https://imganuncios.mitula.net/3_bedroom_maisonette_for_sale_in_new_river_head_173_rosebery_avenue_ec1r_london_9020083539963362096.jpg', 'https://i.pinimg.com/564x/b7/35/51/b735519e06819ea84e3086272fb0ff59.jpg', 'https://imganuncios.mitula.net/2_bedroom_flat_for_sale_in_rosebery_avenue_clerkenwell_ec1r_london_5800084552061298041.jpg', 'https://ga-students.slack.com/archives/DEWD9HVQT/p1559598258018100', 'https://assets.themodernhouse.com/wp-content/uploads/tmh/7940/26-11.jpg'],
     architect='unknown,',
     style=neo_classical,
     address='173 Roseberry Avenue, London',
@@ -233,7 +233,7 @@ with db_session():
 
     Building(
     name='The Captain Kidd',
-    images=['https://i.pinimg.com/originals/a0/3e/e6/a03ee625b4bf1038f14933c274b1984a.jpg'],
+    images=['https://i.pinimg.com/564x/a0/3e/e6/a03ee625b4bf1038f14933c274b1984a.jpg', 'https://i.pinimg.com/564x/38/6d/ed/386dedf9c888a54215c3bc6195ed6e3f.jpg', 'https://s0.geograph.org.uk/geophotos/01/69/63/1696368_0f5a8715.jpg', 'https://i.pinimg.com/564x/b8/85/75/b88575c371b8893fc94d794c20dea9f2.jpg', 'https://i.pinimg.com/originals/a0/3e/e6/a03ee625b4bf1038f14933c274b1984a.jpg'],
     architect='Herbert Austen Hall,',
     style=victorian,
     address='108 Wapping High Street,  London',
