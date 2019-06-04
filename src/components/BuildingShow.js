@@ -63,7 +63,7 @@ class BuildingShow extends React.Component {
         <div className="container">
           <div className="level">
             <div className="level-left">
-              <h1 className="title is-1">{building.name}</h1>
+              <h1 className="building-title title is-1">{building.name}</h1>
             </div>
           </div>
           <div className="media-content">

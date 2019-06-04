@@ -6,7 +6,7 @@ const Slider = (props) => {
   return (
     <SlideShow
       images={props.images}
-      width="500px"
+      width="600px"
       imagesWidth="500px"
       imagesHeight="450px"
       imagesHeightMobile="56vw"

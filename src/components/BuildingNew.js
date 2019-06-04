@@ -110,12 +110,12 @@ class BuildingNew extends React.Component {
                 <div className="field">
                   <label className="label">Image</label>
                   <ReactFilestack
-                    apikey= {process.env.FILESTACK_TOKEN}
+                    apikey={process.env.FILESTACK_TOKEN}
                     buttonText="Upload Building Photo"
                     buttonClass="button"
                     options={{
                       accept: ['image/*'],
-                      maxFiles: 4
+                      maxFiles: 8
                     }}
                     preload={true}
                     onSuccess={this.handleUploadedImages}
