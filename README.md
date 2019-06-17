@@ -1,5 +1,3 @@
-# architech
-
 # Project 4: Architech -  A Python Flask + React App
 
 ### Timeframe
@@ -58,31 +56,41 @@ After a wire-framing session we decided on an Architectural based app focused on
 
 We decided to call the app 'Architech' a fusion of the technology and the architectural aspect of the site. We decided that our MVP would be to register, login, view the buildings index page, view a map and add a building and edit an existing building the user themselves had created. As a bonus challenge we decided to add in an image carousel for each building using react-image-show and uploading multiple images to each building from Instagram, Facebook, local drive or Google Images using filestack-react.  
 
+
 User Register Page:
 
 ![Register page project 4](https://user-images.githubusercontent.com/43292507/59631442-b8265d80-913f-11e9-84ae-319b7d45243e.jpg)
+
+
 
 User Login Page:
 
 ![Login page project 4](https://user-images.githubusercontent.com/43292507/59631629-3682ff80-9140-11e9-8ffc-f896c987e295.png)
 
 
+
 Our map page displaying the buildings location in London:
 
 ![building map page](https://user-images.githubusercontent.com/43292507/59631048-c6c04500-913e-11e9-98be-8581789a25d9.jpg)
 
+
+
 List view of the Buildings Index page:
 
 ![project 4 index page](https://user-images.githubusercontent.com/43292507/59631911-e9535d80-9140-11e9-9513-0138697e2425.jpg)
+
+
 
 Llyods Building show page, displaying the image carousel, the architect and architect style data from the seeds.py file. Also we managed to get directions to the building Google maps and CityMapper from the Users locations.
 
 ![buildings show page llyods](https://user-images.githubusercontent.com/43292507/59632221-9d54e880-9141-11e9-9c4a-0b035cc14d51.jpg)
 
 
+
 Add a new building, the Construction dropdown highlights how we arranged this relationship using the building and construction Python models and the seeds Python files:
 
 ![Add a new building with construction categories](https://user-images.githubusercontent.com/43292507/59632813-fe30f080-9142-11e9-95f8-13cf1e7441b2.jpg)
+
 
 Clicking on the map markers redirects the user to the building show page:
 
