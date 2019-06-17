@@ -52,7 +52,7 @@ _https://architech-hero.herokuapp.com/#/_
 
 We wanted to choose a topic or interest to both of us, with strong high quality visuals. We also desired to work on certain features such as maps and image carousels and include them in this project.
 
-After a wire-framing session we decided on an Architectural based app focused on famous buildings in London. We mapped out the relationships between each building, its architect, its architectural style and the construction materials it was built with. We used Entity relationship diagrams to work these relationships out.
+After a wire-framing session we decided on an Architectural based app focused on famous buildings in London. We mapped out the relationships between each building, its architect, its architectural style and the construction materials it was built with. We used Entity relationship diagrams to work these relationships out. We focused on making the Python back-end first with the seeds, databases and then with the models, building interfaces and controllers in Python. We then would work on the React front-end once the back-end was completed.   
 
 We decided to call the app 'Architech' a fusion of the technology and the architectural aspect of the site. We decided that our MVP would be to register, login, view the buildings index page, view a map and add a building and edit an existing building the user themselves had created. As a bonus challenge we decided to add in an image carousel for each building using react-image-show and uploading multiple images to each building from Instagram, Facebook, local drive or Google Images using filestack-react.  
 
